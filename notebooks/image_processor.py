@@ -7,6 +7,8 @@ import cv2
 import numpy as np
 import tqdm
 
+multiprocessing.set_start_method("spawn", True)
+
 
 class ImageProcessor:
     def __init__(
@@ -118,42 +120,45 @@ class ImageProcessor:
         final_boxes = []
         training_info = []
 
-        for i in idxs.flatten():
-            # Limit to useful
-            if self.LABELS[classIDs[i]] in self.useful_labels:
-                box = boxes[i]
-                left = box[0]
-                top = box[1]
-                width = box[2]
-                height = box[3]
-                final_boxes.append(box)
+        if len(idxs):
+            for i in idxs.flatten():
+                # Limit to useful
+                if self.LABELS[classIDs[i]] in self.useful_labels:
+                    box = boxes[i]
+                    left = box[0]
+                    top = box[1]
+                    width = box[2]
+                    height = box[3]
+                    final_boxes.append(box)
 
-                # Create the box
-                left, top, right, bottom = self.refined_box(left, top, width, height)
-                self.draw_box(
-                    im,
-                    confidences[i],
-                    self.LABELS[classIDs[i]],
-                    left,
-                    top,
-                    right,
-                    bottom,
-                )
+                    # Create the box
+                    left, top, right, bottom = self.refined_box(
+                        left, top, width, height
+                    )
+                    self.draw_box(
+                        im,
+                        confidences[i],
+                        self.LABELS[classIDs[i]],
+                        left,
+                        top,
+                        right,
+                        bottom,
+                    )
 
-                # Get the training info
-                center_x = (left + (width / 2)) / W
-                center_y = (top + (height / 2)) / H
-                width_norm = width / W
-                height_norm = height / H
-                training_info.append(
-                    [
-                        self.useful_labels.index(self.LABELS[classIDs[i]]),
-                        center_x,
-                        center_y,
-                        width_norm,
-                        height_norm,
-                    ]
-                )
+                    # Get the training info
+                    center_x = (left + (width / 2)) / W
+                    center_y = (top + (height / 2)) / H
+                    width_norm = width / W
+                    height_norm = height / H
+                    training_info.append(
+                        [
+                            self.useful_labels.index(self.LABELS[classIDs[i]]),
+                            center_x,
+                            center_y,
+                            width_norm,
+                            height_norm,
+                        ]
+                    )
 
         return im.astype(np.uint8), training_info
 
@@ -176,18 +181,29 @@ class ImageProcessor:
                 fmt="%d %1.4f %1.4f %1.4f %1.4f",
             )
 
-        return file
-
     def run_folder(self, conf_thresh=0.2, parallel=True):
         self.conf_thresh = conf_thresh
         files = glob.glob(os.path.join(self.imagefolder, "*.jpg"))
 
+        # if parallel:
+        #     with concurrent.futures.ThreadPoolExecutor() as executor:
+        #         list(
+        #             tqdm.tqdm(
+        #                 executor.map(self.process_file, files, chunksize=16 * 50),
+        #                 total=len(files),
+        #             )
+        #         )
+        #         # executor.map(self.process_file, files)
         if parallel:
-            with concurrent.futures.ThreadPoolExecutor() as executor:
+            with concurrent.futures.ProcessPoolExecutor() as executor:
                 # list(
-                #     tqdm.tqdm(executor.map(self.process_file, files), total=len(files))
+                #     tqdm.tqdm(
+                #         executor.map(self.process_file, files, chunksize=16 * 50),
+                #         total=len(files),
+                #     )
                 # )
-                executor.map(self.process_file, files)
+                executor.map(self.process_file, files, chunksize=16 * 50)
+
         else:
             t = tqdm.tqdm(files)
             for file in t:
