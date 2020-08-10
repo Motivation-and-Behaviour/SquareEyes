@@ -10,7 +10,7 @@ dependencies:
   - matplotlib
   - nodejs
   - numpy
-  - opencv
+  - opencv=4.4
   - pandas
   - pip
   - python
