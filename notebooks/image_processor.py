@@ -20,6 +20,7 @@ class ImageProcessor:
         image_folder,
         training_out,
         annotimage_out,
+        yolo_version
     ):
         # Setup variables
         self.LABELS = open(labels_path).read().strip().split("\n")
@@ -30,13 +31,14 @@ class ImageProcessor:
         self.training_out = training_out
         self.annotimage_out = annotimage_out
         self.conf_thresh = 0.2
+        self.yolo_version = yolo_version
 
-        # # Init
-        # self.net = cv2.dnn.readNetFromDarknet(self.configpath, self.weightspath)
+#         # Init
+#         self.net = cv2.dnn.readNet(self.configpath, self.weightspath)
 
-        # # Determine the output layer names
-        # self.ln = self.net.getLayerNames()
-        # self.ln = [self.ln[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
+#         # Determine the output layer names
+#         self.ln = self.net.getLayerNames()
+#         self.ln = [self.ln[i[0] - 1] for i in self.net.getUnconnectedOutLayers()]
 
     def refined_box(self, left, top, width, height):
         right = left + width
@@ -82,7 +84,11 @@ class ImageProcessor:
         (H, W) = im.shape[:2]
 
         # Init
-        net = cv2.dnn.readNetFromDarknet(self.configpath, self.weightspath)
+        if self.yolo_version == "3":
+            net = cv2.dnn.readNetFromDarknet(self.configpath, self.weightspath)
+        elif self.yolo_version == "4":
+            net = cv2.dnn.readNet(self.configpath, self.weightspath)
+            
 
         # Determine the output layer names
         ln = net.getLayerNames()
@@ -132,9 +138,11 @@ class ImageProcessor:
                     final_boxes.append(box)
 
                     # Create the box
-                    left, top, right, bottom = self.refined_box(
-                        left, top, width, height
-                    )
+#                     left, top, right, bottom = self.refined_box(
+#                         left, top, width, height
+#                     )
+                    right = left + width
+                    bottom = top + height
                     self.draw_box(
                         im,
                         confidences[i],
@@ -180,6 +188,12 @@ class ImageProcessor:
                 delimiter=" ",
                 fmt="%d %1.4f %1.4f %1.4f %1.4f",
             )
+        else:
+            np.savetxt(
+                os.path.join(self.training_out, file_base + ".txt"),
+                training_info,
+                delimiter=" ",
+            )
 
     def run_folder(self, conf_thresh=0.2, parallel=True):
         self.conf_thresh = conf_thresh
@@ -202,7 +216,8 @@ class ImageProcessor:
                 #         total=len(files),
                 #     )
                 # )
-                executor.map(self.process_file, files, chunksize=16 * 50)
+#                 executor.map(self.process_file, files, chunksize=16 * 50)
+                executor.map(self.process_file, files)
 
         else:
             t = tqdm.tqdm(files)
