@@ -1,7 +1,9 @@
 SquareEyes
 ==============================
 
-A system for reducing burden for wearable camera studies of screen time.
+<img src="Square_eyes.png" width=25%>
+
+Codebase for the Square Eyes research project.
 
 Project Organization
 ------------
