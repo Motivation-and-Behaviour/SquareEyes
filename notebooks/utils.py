@@ -7,8 +7,11 @@ import shutil
 import zipfile
 from collections import Counter
 
+import boto3
 import pandas as pd
 import requests
+from botocore import UNSIGNED
+from botocore.config import Config
 from pycocotools.coco import COCO
 from tqdm import tqdm
 
@@ -252,22 +255,23 @@ def download_openimages_subset(
 
     df["LabelNum"] = df["Label"].apply(lambda x: classes.index(labels_dict[x]))
 
-    # Function to download an image
-    download_command = (
-        "aws s3 --no-sign-request --only-show-errors cp s3://open-images-dataset/"
-    )
-
     def dwnld_im(image, images_folder=os.path.join(folder, "images")):
         if not os.path.exists(os.path.join(images_folder, image.split("/")[-1])):
-            os.system(download_command + image + ' "' + images_folder + '"')
+            s3_client.download_file(
+                "open-images-dataset",
+                image,
+                os.path.join(images_folder, image.split("/")[-1]),
+            )
 
     # Iterate over the image list and download the images
     print(f"getting images ({len(image_list)})")
     if parallel:
         with concurrent.futures.ThreadPoolExecutor() as executor:
+            s3_client = boto3.client("s3", config=Config(signature_version=UNSIGNED))
             list(tqdm(executor.map(dwnld_im, image_list), total=len(image_list)))
     else:
         t = tqdm(image_list)
+        s3_client = boto3.client("s3", config=Config(signature_version=UNSIGNED))
         for image in t:
             t.set_description(f"Working on image: {image}")
             t.refresh
@@ -275,8 +279,8 @@ def download_openimages_subset(
 
     def create_label(image_id, label_num, x_min, x_max, y_min, y_max, folder=folder):
         # Check if the image has been downloaded
-        labels_folder = os.path.join(folder, "images")
-        if os.path.exists(os.path.join(labels_folder, image_id + ".jpg")):
+        labels_folder = os.path.join(folder, "labels")
+        if os.path.exists(os.path.join(folder, "images", image_id + ".jpg")):
             with open(
                 os.path.join(labels_folder, image_id + ".txt"), "a"
             ) as label_file:

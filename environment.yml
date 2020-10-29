@@ -20,6 +20,8 @@ dependencies:
   - tensorflow-gpu=2
   - swifter
   - dask
+  - boto3
+  - pycocotools
   - pip:
     - plaidml-keras
     - plaidbench
