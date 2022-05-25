@@ -348,3 +348,81 @@ def count_instances(folders, class_file, parallel=True):
 
     return labels
 
+
+def prep_dataset(
+    class_file,
+    coco_labels_folder=None,
+    snapit_labels_folder=None,
+    oi_labels_folder=None,
+    parallel=True,
+    class_thresh=50,
+):
+    def read_label(file):
+        with open(file, "r") as f:
+            txt = f.read().splitlines()
+        return [[file, box.split(" ")[0], box] for box in txt]
+
+    folders = {}
+    if coco_labels_folder:
+        folders["coco"] = coco_labels_folder
+    if snapit_labels_folder:
+        folders["snapit"] = snapit_labels_folder
+    if oi_labels_folder:
+        folders["openimages"] = oi_labels_folder
+
+    # TODO - Get all of the labels into a dataset
+    df = pd.DataFrame(columns=["file", "class_id", "box_info", "source"])
+    for key in folders:
+        if parallel:
+            files = glob.glob(os.path.join(folders[key], "*.txt"))
+            files = [file for file in files if os.path.basename(file) != "classes.txt"]
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                results = list(tqdm(executor.map(read_label, files), total=len(files)))
+        else:
+            # TODO
+            pass
+
+        results = [item for sublist in results for item in sublist]
+        temp_df = pd.DataFrame(columns=["file", "class_id", "box_info"], data=results)
+        temp_df["source"] = key
+
+        df = pd.concat([df, temp_df])
+
+    df["class_id"] = pd.to_numeric(df["class_id"])
+    df.reset_index(inplace=True, drop=True)
+
+    # TODO - Remove the labels below threshold
+    with open(class_file, "r") as f:
+        classes = f.read().split("\n")
+
+    for ix in range(len(classes) - 1, -1, -1):
+        # Work from the bottom up to make working with the index easier
+        if df["class_id"][df["class_id"] == ix].count() < class_thresh:
+            # Remove from the classes
+            del classes[ix]
+            # remove instances of class from df
+            df.drop(df[df["class_id"] == ix].index, inplace=True)
+            # Update clases larger than ix
+            df["class_id"] = df["class_id"].apply(lambda x: x - 1 if x > ix else x)
+
+    # TODO - save the revised class file
+
+    # TODO - Stratify the dataset into train/test/validate
+
+    class_nums = reversed(list(df["class_id"].value_counts().index))
+    df["set"] = np.NaN
+
+    # TODO - label snapit as validation first
+    # To ensure our validation set is mostly snapit, we label those as validation first
+    
+
+    
+    for class_num in class_nums:
+        # Iterate from fewest to most
+
+
+
+    return df
+
+    # TODO - Create the new text files (classes, image lists)
+    # pass
