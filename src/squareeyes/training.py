@@ -12,7 +12,7 @@ def make_training_data():
     )
 
     # Objects365
-    datasets.download_obj365()
+    datasets.download_and_convert_obj365()
 
     # Fetch custom data
 

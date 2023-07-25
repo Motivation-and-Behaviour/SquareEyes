@@ -6,7 +6,7 @@ import ultralytics as ul
 from pycocotools.coco import COCO
 from tqdm import tqdm
 
-from .classes import load_coco_classes, load_main_classes
+from .classes import load_coco_classes, load_main_classes, load_obj365_classes
 
 
 def download_coco(dir="src/squareeyes/datasets"):
@@ -121,7 +121,7 @@ def convert_single_coco(filepath, mappings):
         return None
 
 
-def download_obj365(dir="src/squareeyes/datasets/Objects365"):
+def download_and_convert_obj365(dir="src/squareeyes/datasets/Objects365", reset=False):
     """Download Objects365 data and annotations
 
     Adapted from ultralytics/cfg/datasets/objects365.yaml
@@ -130,7 +130,15 @@ def download_obj365(dir="src/squareeyes/datasets/Objects365"):
     ----------
     dir : str, optional
         location to download dataset, by default "src/squareeyes/datasets"
+    reset : bool, optional
+        whether to redo the conversion, by default False
     """
+    classes = load_obj365_classes()
+    marker_file = Path(dir) / ".converted"
+    if marker_file.exists() and not reset:
+        print(f"Objects365 has already been converted")
+        return
+
     dir = Path(dir)
     for p in "images", "labels":
         (dir / p).mkdir(parents=True, exist_ok=True)
@@ -179,10 +187,15 @@ def download_obj365(dir="src/squareeyes/datasets/Objects365"):
         coco = COCO(dir / f"zhiyuan_objv2_{split}.json")
         names = [x["name"] for x in coco.loadCats(coco.getCatIds())]
         for cid, cat in enumerate(names):
+            # Check if class is in SquareEyes classes
+            if str(cid) not in classes.keys():
+                continue
+
             catIds = coco.getCatIds(catNms=[cat])
             imgIds = coco.getImgIds(catIds=catIds)
             for im in tqdm(
-                coco.loadImgs(imgIds), desc=f"Class {cid + 1}/{len(names)} {cat}"
+                coco.loadImgs(imgIds),
+                desc=f"Class {cat}",
             ):
                 width, height = im["width"], im["height"]
                 path = Path(im["file_name"])  # image filename
@@ -199,6 +212,23 @@ def download_obj365(dir="src/squareeyes/datasets/Objects365"):
                             x, y, w, h = ul.utils.ops.xyxy2xywhn(
                                 xyxy, w=width, h=height, clip=True
                             )[0]
-                            file.write(f"{cid} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n")
+                            file.write(
+                                f"{classes[str(cid)]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
+                            )
                 except Exception as e:
                     print(e)
+
+        # Remove any images that don't have a txt file
+        txt_basenames = [
+            os.path.splitext(os.path.basename(file))[0] for file in labels.glob("*.txt")
+        ]
+
+        for jpg in tqdm(images.rglob("*.jpg"), desc=f"Cleaning up {split} images"):
+            jpg_basename = os.path.splitext(os.path.basename(jpg))[0]
+            if jpg_basename not in txt_basenames:
+                # Delete the jpg file
+                os.remove(jpg)
+
+    # Create a marker file to indicate that the conversion has been done
+    with open(marker_file, "w"):
+        pass
