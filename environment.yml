@@ -26,3 +26,4 @@ dependencies:
   - pip:
       - opencv-python==4.7.0.72
       - ultralytics
+      - pycocotools>=2.0.0
