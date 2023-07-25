@@ -1,16 +1,21 @@
-from . import datasets
+from . import classes, datasets
 
 
 def make_training_data():
     # Fetch premade datasets
     # COCO
     datasets.download_coco()
-    datasets.convert_coco()
+    datasets.convert_dataset(
+        dataset="coco",
+        folders=["train2017", "val2017"],
+        classes=classes.load_coco_classes(),
+    )
+
+    # Objects365
+    datasets.download_obj365()
 
     # Fetch custom data
 
-    # COCO
-    # Objects365?
     # OpenImages?
     # ImageNet?
     # Restrict premade to relevant classes
