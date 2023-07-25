@@ -17,12 +17,12 @@ def load_main_classes():
 
 def load_coco_classes():
     coco_classes = {
-        62: 6,  # tv        -> Television
-        63: 2,  # laptop    -> Laptop Computer
-        64: 7,  # mouse     -> Computer Mouse
-        65: 9,  # remote    -> Remote
-        66: 8,  # keyboard  -> Computer Keyboard
-        67: 3,  # cellphone -> Mobile Phone
+        "62": 6,  # tv        -> Television
+        "63": 2,  # laptop    -> Laptop Computer
+        "64": 7,  # mouse     -> Computer Mouse
+        "65": 9,  # remote    -> Remote
+        "66": 8,  # keyboard  -> Computer Keyboard
+        "67": 3,  # cellphone -> Mobile Phone
     }
 
     return coco_classes
@@ -30,12 +30,12 @@ def load_coco_classes():
 
 def load_obj365_classes():
     obj365_classes = {
-        61: 3,  #  CellPhone   -> Mobile Phone
-        73: 2,  #  Laptop      -> Laptop Computer
-        106: 8,  # keyboard    -> Computer Keyboard
-        115: 7,  # Mouse       -> Computer Mouse
-        132: 9,  # Remote      -> Remote
-        159: 0,  # ComputerBox -> Desktop Computer
+        "61": 3,  #  CellPhone   -> Mobile Phone
+        "73": 2,  #  Laptop      -> Laptop Computer
+        "106": 8,  # keyboard    -> Computer Keyboard
+        "115": 7,  # Mouse       -> Computer Mouse
+        "132": 9,  # Remote      -> Remote
+        "159": 0,  # ComputerBox -> Desktop Computer
     }
 
     return obj365_classes
