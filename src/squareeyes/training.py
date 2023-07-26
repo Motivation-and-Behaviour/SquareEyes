@@ -14,9 +14,11 @@ def make_training_data():
     # Objects365
     datasets.download_and_convert_obj365()
 
+    # OpenImages
+    datasets.download_and_convert_OpenImages()
+
     # Fetch custom data
 
-    # OpenImages?
     # ImageNet?
     # Restrict premade to relevant classes
 
