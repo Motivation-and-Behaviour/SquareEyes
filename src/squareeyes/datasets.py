@@ -9,38 +9,16 @@ import botocore
 import numpy as np
 import requests
 import ultralytics as ul
+from datasets import load_dataset
+from kaggle.api.kaggle_api_extended import KaggleApi
+from PIL import Image
 from pycocotools.coco import COCO
 from tqdm import tqdm
 
-from .classes import load_imagenet_classes, load_obj365_classes, load_openimages_classes
-from .utils import download
+from . import classes, utils
 
 
-def download_coco(dir="src/squareeyes/datasets"):
-    """Download COCO data and annotations
-
-    Adapted from ultralytics/cfg/datasets/coco.yaml
-
-    Parameters
-    ----------
-    dir : str, optional
-        location to download dataset, by default "src/squareeyes/datasets"
-    """
-
-    # Get the labels
-    url = "https://github.com/ultralytics/yolov5/releases/download/v1.0/coco2017labels.zip"
-    dir = Path(dir)
-    ul.download([url], dir=dir)
-
-    # Download data
-    urls = [
-        "http://images.cocodataset.org/zips/train2017.zip",  # 19G, 118k images
-        "http://images.cocodataset.org/zips/val2017.zip",  # 1G, 5k images
-    ]
-    ul.download(urls, dir=dir / "coco" / "images", threads=2)
-
-
-def convert_dataset(dataset, folders, classes, reset=False):
+def download_and_convert_coco(dir="src/squareeyes/datasets/coco", reset=False):
     """Convert a dataset to SquareEyes format
 
     Parameters
@@ -56,16 +34,29 @@ def convert_dataset(dataset, folders, classes, reset=False):
     """
 
     # Check if the conversion has already been done
-    dir = Path("src/squareeyes/datasets") / dataset
+    dir = Path(dir)
 
     marker_file = Path(dir) / ".converted"
     if marker_file.exists() and not reset:
-        print(f"{dataset} has already been converted")
+        print(f"COCO has already been converted")
         return
 
-    starting_n = len(list((dir / "labels").glob("*/*.jpg")))
+    # Get the labels
+    url = "https://github.com/ultralytics/yolov5/releases/download/v1.0/coco2017labels.zip"
+    dir = Path(dir)
+    ul.download([url], dir=dir)
 
-    for folder in (pbar := tqdm(folders, position=0)):
+    # Download data
+    urls = [
+        "http://images.cocodataset.org/zips/train2017.zip",  # 19G, 118k images
+        "http://images.cocodataset.org/zips/val2017.zip",  # 1G, 5k images
+    ]
+    ul.download(urls, dir=dir / "images", threads=2)
+
+    starting_n = len(list((dir / "labels").glob("*/*.jpg")))
+    classes_dict = classes.load_coco_classes()
+
+    for folder in (pbar := tqdm(["train2017", "val2017"], position=0)):
         pbar.set_description(f"Converting {folder}")
 
         folder_path = Path(dir) / "labels" / folder
@@ -75,7 +66,7 @@ def convert_dataset(dataset, folders, classes, reset=False):
 
         # Convert all the txt files
         for txt_file in tqdm(txt_files, position=1, leave=False):
-            filepath = convert_single_coco(txt_file, classes)
+            filepath = convert_single_coco(txt_file, classes_dict)
 
             # If the file was deleted, remove the associated image
             if filepath is not None:
@@ -144,7 +135,7 @@ def download_and_convert_obj365(
     cleanup : bool, optional
         whether to delete the .tag.gz files once finished, by default True
     """
-    classes = load_obj365_classes()
+    classes_dict = classes.load_obj365_classes()
     marker_file = Path(dir) / ".converted"
     if marker_file.exists() and not reset:
         print(f"Objects365 has already been converted")
@@ -199,7 +190,7 @@ def download_and_convert_obj365(
         names = [x["name"] for x in coco.loadCats(coco.getCatIds())]
         for cid, cat in enumerate(names):
             # Check if class is in SquareEyes classes
-            if str(cid) not in classes.keys():
+            if str(cid) not in classes_dict.keys():
                 continue
 
             catIds = coco.getCatIds(catNms=[cat])
@@ -224,7 +215,7 @@ def download_and_convert_obj365(
                                 xyxy, w=width, h=height, clip=True
                             )[0]
                             file.write(
-                                f"{classes[str(cid)]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
+                                f"{classes_dict[str(cid)]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
                             )
                 except Exception as e:
                     print(e)
@@ -253,10 +244,10 @@ def download_and_convert_obj365(
 
 
 def download_and_convert_OpenImages(
-    dir="src/squareeyes/datasets/OpenImages", reset=True
+    dir="src/squareeyes/datasets/OpenImages", reset=False
 ):
-    dir = Path("src/squareeyes/datasets/OpenImages")
-    classes = load_openimages_classes()
+    dir = Path(dir)
+    classes_dict = classes.load_openimages_classes()
     marker_file = Path(dir) / ".converted"
     if marker_file.exists() and not reset:
         print(f"OpenImages has already been converted")
@@ -269,7 +260,7 @@ def download_and_convert_OpenImages(
 
     for split, url_sect, split_name in [
         ("train", "v6/oidv6-train-", "train"),
-        ("val", "v5/test-", "validation"),
+        ("val", "v5/test-", "test"),
     ]:
         print(f"Downloading boxes for {split} ...")
         url = (
@@ -277,14 +268,15 @@ def download_and_convert_OpenImages(
         )
         boxes_file = dir / f"{url_sect.split('/')[-1]}annotations-bbox.csv"
         if not os.path.isfile(boxes_file):
-            download(url, dir)
+            utils.download(url, dir)
         images, labels = dir / "images" / split, dir / "labels" / split
         imgs_set = set()
+        boxes_file_nrows = utils.count_csv_rows(boxes_file, dict=True)
         with open(boxes_file, "r") as file:
             reader = csv.DictReader(file)
-            for row in tqdm(reader, desc=f"Processing {split}"):
+            for row in tqdm(reader, desc=f"Processing {split}", total=boxes_file_nrows):
                 oi_label = row["LabelName"]
-                if oi_label not in classes.keys():
+                if oi_label not in classes_dict.keys():
                     continue
                 imgs_set.add(row["ImageID"])
                 # Create a label file
@@ -294,14 +286,20 @@ def download_and_convert_OpenImages(
                     y = (float(row["YMin"]) + float(row["YMax"])) / 2
                     w = float(row["XMax"]) - float(row["XMin"])
                     h = float(row["YMax"]) - float(row["YMin"])
-                    file.write(f"{classes[oi_label]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n")
+                    file.write(
+                        f"{classes_dict[oi_label]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
+                    )
         # Create the image list to download
-        with open(dir / f"{split_name}_ids.txt", "w") as file:
+        with open(dir / f"{split}_ids.txt", "w") as file:
             for img in imgs_set:
                 file.write(f"{split_name}/{img}\n")
 
         print(f"Downloading images for {split} ...")
-        download_openimages(images, dir / f"{split_name}_ids.txt", 8)
+        download_openimages(images, dir / f"{split}_ids.txt", 8)
+        # Delete any txt where the image couldn't be downloaded
+        for txt in tqdm(labels.glob("*.txt"), desc=f"Cleaning up {split}"):
+            if not os.path.isfile(images / f"{txt.stem}.jpg"):
+                os.remove(txt)
 
     with open(marker_file, "w"):
         pass
@@ -337,7 +335,7 @@ def download_openimages(download_folder, image_list, num_processes):
                 os.path.join(download_folder, f"{image_id}.jpg"),
             )
         except botocore.exceptions.ClientError as exception:
-            raise Exception(
+            print(
                 f"ERROR when downloading image `{split}/{image_id}`: {str(exception)}"
             )
 
@@ -359,3 +357,94 @@ def download_openimages(download_folder, image_list, num_processes):
             future.result()
             progress_bar.update(1)
     progress_bar.close()
+
+
+def download_and_convert_ImageNet(
+    dir="src/squareeyes/datasets/ImageNet", reset=False, cleanup=True
+):
+    dir = Path(dir)
+    marker_file = Path(dir) / ".converted"
+    if marker_file.exists() and not reset:
+        print(f"ImageNet has already been converted")
+        return
+
+    classes_dict = classes.load_imagenet_classes()
+
+    for p in "images", "labels":
+        (dir / p).mkdir(parents=True, exist_ok=True)
+        for q in "train", "val":
+            (dir / p / q).mkdir(parents=True, exist_ok=True)
+
+    # Remember that you need to put the API key in ~/.kaggle/kaggle.json first
+    api = KaggleApi()
+    try:
+        api.authenticate()
+    except:
+        raise Exception(
+            "Couldn't authenticate with Kaggle API. Have you downloaded the API key?"
+        )
+
+    api.competition_download_files(
+        "imagenet-object-localization-challenge", path=dir, quiet=False
+    )
+
+    zip_path = dir / "imagenet-object-localization-challenge.zip"
+
+    zip_contents = utils.list_zip_contents(
+        dir / "imagenet-object-localization-challenge.zip"
+    )
+
+    for split, csv_file in [
+        ("train", "LOC_train_solution.csv"),
+        ("val", "LOC_val_solution.csv"),
+    ]:
+        images, labels = dir / "images" / split, dir / "labels" / split
+        print(f"Unzipping boxes for {split} ...")
+
+        utils.extract_specific_files(zip_path, [csv_file], dir)
+
+        imgs_set = set()
+        csv_filepath = dir / csv_file
+        csv_nrows = utils.count_csv_rows(csv_filepath, dict=True)
+
+        with open(csv_filepath, "r") as file:
+            reader = csv.DictReader(file)
+            for row in tqdm(reader, desc=f"Processing {split}", total=csv_nrows):
+                image_id = row["ImageId"]
+                row_string_split = row["PredictionString"].split()
+                for i in range(0, len(row_string_split), 5):
+                    bounding_box = row_string_split[i : i + 5]
+                    if bounding_box[0] not in classes_dict.keys():
+                        continue
+                    image_filename = f"{image_id}.JPEG"
+                    # If we haven't already extracted the image, extract it
+                    if not image_id in imgs_set:
+                        imgs_set.add(image_id)
+                        img_idx = utils.find_partial_match(zip_contents, image_filename)
+                        if img_idx is None:
+                            continue
+                        utils.extract_specific_files(
+                            zip_path, [zip_contents[img_idx]], images
+                        )
+                    # Get the dimensions of the image
+                    with Image.open(images / image_filename) as img:
+                        width, height = img.size
+
+                    x_min, y_min, x_max, y_max = bounding_box[1:]
+
+                    # Create a label file
+                    with open(labels / f"{image_id}.txt", "a") as file:
+                        # Convert the bounding box to x, y, w, h
+                        x = ((float(x_min) + float(x_max)) / 2) / width
+                        y = ((float(y_min) + float(y_max)) / 2) / height
+                        w = (float(x_max) - float(x_min)) / width
+                        h = (float(y_max) - float(y_min)) / height
+                        file.write(
+                            f"{classes_dict[bounding_box[0]]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
+                        )
+    # Run the clean up
+    if cleanup:
+        os.remove(zip_path)
+
+    with open(marker_file, "w"):
+        pass

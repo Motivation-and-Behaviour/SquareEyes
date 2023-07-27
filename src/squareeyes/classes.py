@@ -49,7 +49,6 @@ def load_imagenet_classes():
         "n03832673": 2,  # notebook, notebook computer -> Laptop Computer
         "n02992529": 3,  # cellular telephone, cellular phone, cellphone, cell, mobile phone -> Mobile Phone
         "n03584254": 4,  # iPod -> iPod
-        "n03485407": 5,  # hand-held computer, hand-held microcomputer -> Tablet
         "n04404412": 6,  # television, television system -> Television
         "n04152593": 6,  # screen, CRT screen -> Television
         "n03793489": 7,  # mouse, computer mouse -> Computer Mouse

@@ -3,19 +3,17 @@ from . import classes, datasets
 
 def make_training_data():
     # Fetch premade datasets
-    # COCO
-    datasets.download_coco()
-    datasets.convert_dataset(
-        dataset="coco",
-        folders=["train2017", "val2017"],
-        classes=classes.load_coco_classes(),
-    )
+    print("Dataset: COCO")
+    datasets.download_and_convert_coco()
 
-    # Objects365
+    print("Dataset: Objects365")
     datasets.download_and_convert_obj365()
 
-    # OpenImages
+    print("Dataset: OpenImages")
     datasets.download_and_convert_OpenImages()
+
+    print("Dataset: ImageNet")
+    datasets.download_and_convert_ImageNet()
 
     # Fetch custom data
 
