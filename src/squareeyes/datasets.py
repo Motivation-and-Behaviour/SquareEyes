@@ -403,45 +403,54 @@ def download_and_convert_ImageNet(
 
         utils.extract_specific_files(zip_path, [csv_file], dir)
 
-        imgs_set = set()
+        usable_rows = []
+        img_paths = []
         csv_filepath = dir / csv_file
         csv_nrows = utils.count_csv_rows(csv_filepath, dict=True)
 
         with open(csv_filepath, "r") as file:
             reader = csv.DictReader(file)
             for row in tqdm(reader, desc=f"Processing {split}", total=csv_nrows):
-                image_id = row["ImageId"]
-                row_string_split = row["PredictionString"].split()
-                for i in range(0, len(row_string_split), 5):
-                    bounding_box = row_string_split[i : i + 5]
-                    if bounding_box[0] not in classes_dict.keys():
+                if any(
+                    labels in row["PredictionString"] for labels in classes_dict.keys()
+                ):
+                    img_idx = utils.find_partial_match(
+                        zip_contents, f"{row['ImageId']}.JPEG"
+                    )
+                    if img_idx is None:
                         continue
-                    image_filename = f"{image_id}.JPEG"
-                    # If we haven't already extracted the image, extract it
-                    if not image_id in imgs_set:
-                        imgs_set.add(image_id)
-                        img_idx = utils.find_partial_match(zip_contents, image_filename)
-                        if img_idx is None:
-                            continue
-                        utils.extract_specific_files(
-                            zip_path, [zip_contents[img_idx]], images
-                        )
-                    # Get the dimensions of the image
-                    with Image.open(images / image_filename) as img:
-                        width, height = img.size
+                    img_paths.append(zip_contents[img_idx])
+                    usable_rows.append(row)
 
-                    x_min, y_min, x_max, y_max = bounding_box[1:]
+        # Unpack the images
+        print(f"Unzipping images for {split} ...")
+        utils.extract_specific_files(zip_path, img_paths, images)
+        # Make the labels
+        for row in tqdm(usable_rows, desc=f"Making labels for {split}"):
+            image_filename = f"{row['ImageId']}.JPEG"
+            # Get the dimensions of the image
+            with Image.open(images / image_filename) as img:
+                width, height = img.size
 
-                    # Create a label file
-                    with open(labels / f"{image_id}.txt", "a") as file:
-                        # Convert the bounding box to x, y, w, h
-                        x = ((float(x_min) + float(x_max)) / 2) / width
-                        y = ((float(y_min) + float(y_max)) / 2) / height
-                        w = (float(x_max) - float(x_min)) / width
-                        h = (float(y_max) - float(y_min)) / height
-                        file.write(
-                            f"{classes_dict[bounding_box[0]]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
-                        )
+            row_string_split = row["PredictionString"].split()
+            for i in range(0, len(row_string_split), 5):
+                bounding_box = row_string_split[i : i + 5]
+                if bounding_box[0] not in classes_dict.keys():
+                    continue
+
+                x_min, y_min, x_max, y_max = bounding_box[1:]
+
+                # Create a label file
+                with open(labels / f"{row['ImageId']}.txt", "a") as file:
+                    # Convert the bounding box to x, y, w, h
+                    x = ((float(x_min) + float(x_max)) / 2) / width
+                    y = ((float(y_min) + float(y_max)) / 2) / height
+                    w = (float(x_max) - float(x_min)) / width
+                    h = (float(y_max) - float(y_min)) / height
+                    file.write(
+                        f"{classes_dict[bounding_box[0]]} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n"
+                    )
+
     # Run the clean up
     if cleanup:
         os.remove(zip_path)

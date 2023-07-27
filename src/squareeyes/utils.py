@@ -27,10 +27,16 @@ def list_zip_contents(zip_filepath):
 
 
 def extract_specific_files(
-    zip_filepath: str, filenames: List[str], dest_path: str
+    zip_filepath: str, filenames: List[str], dest_path: str, progress: bool = True
 ) -> None:
+    if len(filenames) == 1:
+        progress = False
     with zipfile.ZipFile(zip_filepath, "r") as zip_ref:
-        for filename in filenames:
+        if progress:
+            iterator = tqdm(filenames)
+        else:
+            iterator = filenames
+        for filename in iterator:
             try:
                 file_data = zip_ref.read(filename)
                 # use os.path.basename to remove directory info from filename
