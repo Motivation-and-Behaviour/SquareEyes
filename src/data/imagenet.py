@@ -10,15 +10,13 @@ from .. import utils
 from .classes import load_imagenet_classes
 
 
-def download_and_convert_ImageNet(
-    dir="data/datasets/ImageNet", reset=False, cleanup=True
-):
+def download_and_convert_ImageNet(dir="datasets/ImageNet", reset=False, cleanup=True):
     """Download and convert the ImageNet dataset to SquareEyes format
 
     Parameters
     ----------
     dir : str, optional
-        Name of the dataset folder, by default "data/datasets/ImageNet"
+        Name of the dataset folder, by default "datasets/ImageNet"
     reset : bool, optional
         Whether to redo the conversion, by default False
     cleanup : bool, optional

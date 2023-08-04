@@ -1,17 +1,16 @@
 import textwrap
 
 from src.data.make_data import make_training_data
+from src.models.make_yaml import make_training_yaml
 from src.models.train_model import train_model
-
-from . import make_yaml
 
 
 def main():
-    coco = True
-    obj365 = True
-    openimages = True
-    imagenet = False
-    custom = False
+    use_coco = True
+    use_obj365 = True
+    use_openimages = True
+    use_imagenet = False
+    use_custom = False
     name = "SquareEyes_v001"
     desc = """
     First version of the SquareEyes model.
@@ -19,24 +18,31 @@ def main():
     Trained for 50 epochs with batch size of 16 and image size of 640 using YOLOv8s as base"""
 
     make_training_data(
-        coco=coco,
-        obj365=obj365,
-        openimages=openimages,
-        imagenet=imagenet,
-        custom=custom,
+        use_coco=use_coco,
+        use_obj365=use_obj365,
+        use_openimages=use_openimages,
+        use_imagenet=use_imagenet,
+        use_custom=use_custom,
     )
 
-    yaml_path = make_yaml(
+    yaml_path = make_training_yaml(
         name=name,
         desc=textwrap.dedent(desc),
-        coco=coco,
-        obj365=obj365,
-        openimages=openimages,
-        imagenet=imagenet,
-        custom=custom,
+        use_coco=use_coco,
+        use_obj365=use_obj365,
+        use_openimages=use_openimages,
+        use_imagenet=use_imagenet,
+        use_custom=use_custom,
     )
 
-    train_model("yolov8s.pt", yaml_path, 50, 16, 640)
+    train_model(
+        yolo_model="yolov8s.pt",
+        yaml_path=yaml_path,
+        name=name,
+        epochs=50,
+        batch_size=16,
+        img_size=640,
+    )
 
 
 if __name__ == "__main__":

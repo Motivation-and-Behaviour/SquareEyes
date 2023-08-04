@@ -7,13 +7,13 @@ from tqdm import tqdm
 from .classes import load_coco_classes
 
 
-def download_and_convert_coco(dir="data/datasets/coco", reset=False):
+def download_and_convert_coco(dir="datasets/coco", reset=False):
     """Download and convert the COCO dataset to SquareEyes format
 
     Parameters
     ----------
     dir : str, optional
-        Name of the dataset folder, by default "data/datasets/coco"
+        Name of the dataset folder, by default "datasets/coco"
     reset : bool, optional
         whether to redo the conversion, by default False
     """

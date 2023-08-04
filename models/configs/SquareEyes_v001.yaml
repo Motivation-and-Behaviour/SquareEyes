@@ -1,0 +1,26 @@
+# 
+# First version of the SquareEyes model.
+# Includes COCO, Objects365, and OpenImages datasets with no custom data
+# Trained for 50 epochs with batch size of 16 and image size of 640 using YOLOv8s as base
+name: SquareEyes_v001
+
+path: .
+train:
+  - coco/images/train2017
+  - Objects365/images/train
+  - OpenImages/images/train
+val:
+  - coco/images/val2017
+  - Objects365/images/val
+  - OpenImages/images/val
+names:
+  0: Desktop Computer
+  1: Computer Monitor
+  2: Laptop Computer
+  3: Mobile Phone
+  4: iPod
+  5: Tablet
+  6: Television
+  7: Computer Mouse
+  8: Computer Keyboard
+  9: Remote

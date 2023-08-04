@@ -9,9 +9,7 @@ from tqdm import tqdm
 from .classes import load_obj365_classes
 
 
-def download_and_convert_obj365(
-    dir="data/datasets/Objects365", reset=False, cleanup=True
-):
+def download_and_convert_obj365(dir="datasets/Objects365", reset=False, cleanup=True):
     """Download Objects365 data and annotations
 
     Adapted from ultralytics/cfg/datasets/objects365.yaml
@@ -19,7 +17,7 @@ def download_and_convert_obj365(
     Parameters
     ----------
     dir : str, optional
-        location to download dataset, by default "data/datasets"
+        location to download dataset, by default "datasets/Objects365"
     reset : bool, optional
         whether to redo the conversion, by default False
     cleanup : bool, optional

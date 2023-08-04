@@ -12,13 +12,13 @@ from .. import utils
 from .classes import load_openimages_classes
 
 
-def download_and_convert_OpenImages(dir="data/datasets/OpenImages", reset=False):
+def download_and_convert_OpenImages(dir="datasets/OpenImages", reset=False):
     """Download and convert the OpenImages dataset to SquareEyes format
 
     Parameters
     ----------
     dir : str, optional
-        Name of the dataset folder, by default "data/datasets/OpenImages"
+        Name of the dataset folder, by default "datasets/OpenImages"
     reset : bool, optional
         whether to redo the conversion, by default False
     """
