@@ -61,3 +61,40 @@ def count_csv_rows(csv_file, dict=True):
             return sum(1 for line in f) - 1
         else:
             return sum(1 for line in f)
+
+
+def generate_base_model_params():
+    return {
+        "data": None,
+        "epochs": 100,
+        "patience": 50,
+        "batch": 16,
+        "imgsz": 640,
+        "save": True,
+        "exist_ok": False,
+        "optimizer": "auto",
+        "verbose": False,
+        "seed": 0,
+        "deterministic": True,
+        "single_cls": False,
+        "rect": False,
+        "cos_lr": False,
+        "close_mosaic": 0,
+        "resume": False,
+        "amp": True,
+        "fraction": 1.0,
+        "profile": False,
+        "lr0": 0.01,
+        "lrf": 0.01,
+        "momentum": 0.937,
+        "weight_decay": 0.0005,
+        "warmup_epochs": 3.0,
+        "warmup_momentum": 0.8,
+        "warmup_bias_lr": 0.1,
+        "box": 7.5,
+        "cls": 0.5,
+        "dfl": 1.5,
+        "label_smoothing": 0.0,
+        "nbs": 64,
+        "val": True,
+    }

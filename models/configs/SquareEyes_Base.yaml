@@ -1,0 +1,25 @@
+# 
+# This is the base model for the Square Eyes model.
+# Includes COCO, Objects365, and OpenImages datasets with no custom data for training or testing.
+# 
+path: .
+train:
+  - coco/images/train2017
+  - Objects365/images/train
+  - OpenImages/images/train
+val:
+  - coco/images/val2017
+  - Objects365/images/val
+  - OpenImages/images/val
+names:
+  0: Desktop Computer
+  1: Computer Monitor
+  2: Laptop Computer
+  3: Mobile Phone
+  4: iPod
+  5: Tablet
+  6: Television
+  7: Computer Mouse
+  8: Computer Keyboard
+  9: Remote
+  10: Handheld game console

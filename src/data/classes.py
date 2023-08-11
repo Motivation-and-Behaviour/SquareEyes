@@ -10,6 +10,7 @@ def load_main_classes():
         7: {"label": "Computer Mouse", "model": "Screens + Indicators"},
         8: {"label": "Computer Keyboard", "model": "Screens + Indicators"},
         9: {"label": "Remote", "model": "Screens + Indicators"},
+        10: {"label": "Handheld game console", "model": "Screens + Indicators"},
     }
 
     return main_classes
@@ -71,3 +72,16 @@ def load_openimages_classes():
     }
 
     return openimages_classes
+
+
+def load_snapit_classes():
+    snapit_classes = {
+        "16": 6,  # tvmonitor
+        "17": 2,  # laptop
+        "18": 7,  # mouse
+        "19": 9,  # remote
+        "20": 8,  # keyboard
+        "21": 3,  # cell phone
+    }
+
+    return snapit_classes

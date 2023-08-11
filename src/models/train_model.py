@@ -1,9 +1,16 @@
+from clearml import Task
 from ultralytics import YOLO
 
 
-def train_model(yolo_model, yaml_path, name, epochs, batch_size, img_size):
+def train_model(yolo_model, name, model_params):
+    task = Task.init(
+        project_name="Square Eyes",
+        task_name=name,
+    )
+
+    task.set_parameter("model_variant", yolo_model.replace(".pt", ""))
+    task.connect(model_params)
+
     model = YOLO(yolo_model)
 
-    model.train(
-        data=yaml_path, name=name, epochs=epochs, batch=batch_size, imgsz=img_size
-    )
+    model.train(name=name, **model_params)

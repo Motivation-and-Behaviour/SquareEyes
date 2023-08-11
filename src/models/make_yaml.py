@@ -69,7 +69,6 @@ def make_training_yaml(
     with open(f"models/configs/{name}.yaml", "w") as file:
         for line in data["desc"].split("\n"):
             file.write(f"# {line}\n")
-        file.write(f"name: {data['name']}\n\n")
         file.write(f"path: {data['path']}\n")
         file.write("train:\n")
         for item in data["train"]:
