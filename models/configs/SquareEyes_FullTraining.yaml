@@ -1,0 +1,24 @@
+# 
+# This is a base model for the Square Eyes model.
+# Includes COCO, Objects365, Imagenet, and OpenImages datasets, and data from SNAPIT and our validation study. 
+# Open source datasets have been subset to only images that are similar to those that we expect to capture. 
+# 
+path: .
+train:
+  - training_data/images/train
+val:
+  - training_data/images/val
+test:
+  - training_data/images/test
+names:
+  0: Desktop Computer
+  1: Computer Monitor
+  2: Laptop Computer
+  3: Mobile Phone
+  4: iPod
+  5: Tablet
+  6: Television
+  7: Computer Mouse
+  8: Computer Keyboard
+  9: Remote
+  10: Handheld game console

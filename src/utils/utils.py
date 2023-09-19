@@ -1,9 +1,13 @@
+import csv
 import os
 import zipfile
+from pathlib import Path
 from typing import List
 
 import requests
 from tqdm import tqdm
+
+from ..data.classes import load_main_classes
 
 
 def download(url: str, dir: os.PathLike):
@@ -80,7 +84,6 @@ def generate_base_model_params():
         "rect": False,
         "cos_lr": False,
         "close_mosaic": 0,
-        "resume": False,
         "amp": True,
         "fraction": 1.0,
         "profile": False,
@@ -98,3 +101,32 @@ def generate_base_model_params():
         "nbs": 64,
         "val": True,
     }
+
+
+def make_classes_file(dir):
+    dir = Path(dir)
+    classes = load_main_classes()
+
+    with open(dir / "classes.txt", "w") as file:
+        for value in classes.values():
+            file.write(value["label"] + "\n")
+
+
+def snapshot_subsetted_dataset(subsetted_folder):
+    dataset_name = os.path.dirname(subsetted_folder).split("/")[-1]
+
+    base_dir = Path(subsetted_folder) / "images"
+
+    with open(subsetted_folder + f"/{dataset_name}_snapshot.csv", "w") as csvfile:
+        csv_writer = csv.writer(csvfile)
+
+        # Write the header
+        csv_writer.writerow(["File Name", "Split"])
+
+        # Iterate over all files in the directory and its subdirectories
+        for file_path in base_dir.rglob("*.*"):
+            file_name = file_path.name
+            parent_folder = file_path.parent.name
+
+            # Write the file details to the CSV
+            csv_writer.writerow([file_name, parent_folder])

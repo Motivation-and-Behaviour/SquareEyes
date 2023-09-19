@@ -91,3 +91,4 @@ target/
 # Models
 *.pt
 runs/
+/scratch*

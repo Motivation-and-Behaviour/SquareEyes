@@ -1,15 +1,7 @@
 from src.data import classes
 
 
-def make_training_yaml(
-    name,
-    desc,
-    use_coco=True,
-    use_obj365=True,
-    use_openimages=True,
-    use_imagenet=False,
-    use_custom=False,
-):
+def make_training_yaml(name, desc):
     """Create a yaml file for model training
 
     Parameters
@@ -18,16 +10,6 @@ def make_training_yaml(
         The name of the model
     desc : str
         The description of the model
-    use_coco : bool, optional
-        Include the COCO dataset, by default True
-    use_obj365 : bool, optional
-        Include the Objects365 dataset, by default True
-    use_openimages : bool, optional
-        Include the OpenImages dataset, by default True
-    use_imagenet : bool, optional
-        Include the ImageNet dataset, by default False
-    use_custom : bool, optional
-        Include custom dataset, by default False
 
     Returns
     -------
@@ -41,30 +23,11 @@ def make_training_yaml(
         "name": name,
         "desc": desc,
         "path": ".",
-        "train": [],
-        "val": [],
+        "train": ["training_data/images/train"],
+        "val": ["training_data/images/val"],
+        "test": ["training_data/images/test"],
         "names": names,
     }
-
-    if use_coco:
-        data["train"].append("coco/images/train2017")
-        data["val"].append("coco/images/val2017")
-
-    if use_obj365:
-        data["train"].append("Objects365/images/train")
-        data["val"].append("Objects365/images/val")
-
-    if use_openimages:
-        data["train"].append("OpenImages/images/train")
-        data["val"].append("OpenImages/images/val")
-
-    if use_imagenet:
-        data["train"].append("ImageNet/images/train")
-        data["val"].append("ImageNet/images/val")
-
-    if use_custom:
-        # TODO: Add custom dataset
-        pass
 
     with open(f"models/configs/{name}.yaml", "w") as file:
         for line in data["desc"].split("\n"):
@@ -75,6 +38,9 @@ def make_training_yaml(
             file.write(f"  - {item}\n")
         file.write("val:\n")
         for item in data["val"]:
+            file.write(f"  - {item}\n")
+        file.write("test:\n")
+        for item in data["test"]:
             file.write(f"  - {item}\n")
         file.write("names:\n")
         for key, value in data["names"].items():

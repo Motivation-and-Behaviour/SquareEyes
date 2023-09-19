@@ -1,4 +1,5 @@
 import glob
+import json
 import os
 import shutil
 from concurrent.futures import ProcessPoolExecutor
@@ -10,6 +11,7 @@ from label_studio_converter.imports import yolo
 from tqdm import tqdm
 from ultralytics import YOLO
 
+from ..utils.utils import make_classes_file
 from .classes import load_main_classes, load_snapit_classes
 
 
@@ -119,28 +121,87 @@ def fetch_and_preannotate_customval(
             print(f"Image not found: {image_path}")
 
     # Create the classes.txt file
-    classes = load_main_classes()
-    with open(dir / "classes.txt", "w") as file:
-        for value in classes.values():
-            file.write(value["label"] + "\n")
-
-    # for p in "images", "labels":
-    #     (dir / p).mkdir(parents=True, exist_ok=True)
-    #     for q in "train", "val", "test":
-    #         (dir / p / q).mkdir(parents=True, exist_ok=True)
+    make_classes_file(dir)
 
 
-def convert_yolo_to_ls(dir="datasets/Custom/validation_temp", name="customval"):
+def convert_yolo_to_ls(
+    dir="datasets/Custom/validation_study",
+    name="customval",
+    requires_copy=False,
+    img_ext=".jpg",
+):
+    dir = Path(dir)
+
+    convert_dir = str(dir)
+
+    if requires_copy:
+        # Create a temporary folder to copy the images to
+        temp_dir = dir / "temp"
+        temp_dir.mkdir(parents=True, exist_ok=True)
+        for p in "images", "labels":
+            (temp_dir / p).mkdir(parents=True, exist_ok=True)
+
+        images = [
+            file
+            for file in (dir / "images").rglob("*")
+            if file.suffix in [".jpg", ".JPEG"]
+        ]
+
+        for image in tqdm(images, desc="Copying images", unit="file"):
+            dest_file_path = temp_dir / "images" / image.name
+            shutil.copy(image, dest_file_path)
+
+        labels = [file for file in (dir / "labels").rglob("*.txt")]
+
+        for label in tqdm(labels, desc="Copying labels", unit="file"):
+            dest_file_path = temp_dir / "labels" / label.name
+            shutil.copy(label, dest_file_path)
+
+        convert_dir = str(temp_dir)
+
+    if not os.path.exists(convert_dir + "/classes.txt"):
+        make_classes_file(convert_dir)
+
     yolo.convert_yolo_to_ls(
-        input_dir=dir,
-        out_file=dir + f"/{name}-tasks.json",
-        image_root_url="/data/local-files/?d=GitHub/SquareEyes/" + dir + "/images",
+        input_dir=convert_dir,
+        out_file=convert_dir + f"/{name}-tasks.json",
+        image_root_url="/data/local-files/?d=GitHub/SquareEyes/" + str(dir) + "/images",
         out_type="predictions",
+        image_ext=img_ext,
     )
+
+    if requires_copy:
+        with open(convert_dir + f"/{name}-tasks.json", "r") as f:
+            data = json.load(f)
+
+        for task in tqdm(data):
+            curr_img = task["data"]["image"]
+            img_basename = os.path.basename(curr_img)
+
+            path_index = next(
+                (i for i, p in enumerate(images) if p.name == img_basename), None
+            )
+
+            if path_index is not None:
+                subsection = images.pop(path_index).parts[-2]
+
+                new_img = curr_img.replace(
+                    f"/images/{img_basename}", f"/images/{subsection}/{img_basename}"
+                )
+
+                task["data"]["image"] = new_img
+
+        with open(convert_dir + f"/{name}-tasks.json", "w") as f:
+            json.dump(data, f)
+
+        # Clean up
+        shutil.copy(convert_dir + f"/{name}-tasks.json", dir)
+        shutil.copy(convert_dir + f"/{name}-tasks.label_config.xml", dir)
+        shutil.rmtree(temp_dir)
 
 
 def copy_and_convert_snapit(
-    dir="datasets/Custom/snapit_temp",
+    dir="datasets/Custom/snapit/annotating",
     network_dir="/mnt/MBData/Screen_Time_Measure_Development/SNAP_IT/YOLO_Training/Training_Images_V3",
     reset=False,
 ):
