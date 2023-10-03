@@ -85,3 +85,24 @@ def load_snapit_classes():
     }
 
     return snapit_classes
+
+
+def load_timelapse_mappings():
+    """These describe how the main classes map to the device lists in the
+    timelapse software.
+    """
+    timelapse_mappings = {
+        0: "Device Indicator - Desktop",
+        1: "Desktop Computer",
+        2: "Laptop Computer",
+        3: "Mobile Device (Phone, iPod)",
+        4: "Mobile Device (Phone, iPod)",
+        5: "Tablet (iPad, eReader)",
+        6: "Television",
+        7: "Device Indicator - Mouse",
+        8: "Device Indicator - Keyboard",
+        9: "Device Indicator - Remote",
+        10: "Handheld Game Console",
+    }
+
+    return timelapse_mappings
