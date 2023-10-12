@@ -1,4 +1,5 @@
 import csv
+import datetime
 import json
 import multiprocessing
 import os
@@ -16,10 +17,9 @@ from src.data.classes import load_main_classes, load_timelapse_mappings
 from src.models.predict import Predictor
 
 
-def process_folders(folders, overwrite=False):
+def process_folders(folders, n_back=5, overwrite=False):
     # The folder path should be e.g., ...\1173\Baseline\Images where there is
     # another folder `images` underneath.
-    # TODO: Function to generate folder path from participant IDs
 
     if not isinstance(folders, list):
         folders = [folders]
@@ -33,6 +33,7 @@ def process_folders(folders, overwrite=False):
             print(f"{folder} has already been processed")
             continue
 
+        # TODO: Check that folder structure meets requirements
         # Copy the template file into the folder
         shutil.copy("data/SquareEyes Template.tdb", folder)
 
@@ -68,6 +69,8 @@ def process_folders(folders, overwrite=False):
             row_filename = row["File"]
             row["DateTime"] = timestamps.get(row_filename, "")
 
+        csv_rows = calculate_n_back(csv_rows, n=n_back)
+
         print("Writing CSV File")
         with open(Path(folder) / "Image Data Import.csv", "w", newline="") as csv_file:
             writer = csv.DictWriter(
@@ -77,9 +80,9 @@ def process_folders(folders, overwrite=False):
                     "File",
                     "RelativePath",
                     "DateTime",
-                    "Device_1",
-                    "Device_2",
-                    "Device_3",
+                    "Device1",
+                    "Device2",
+                    "Device3",
                     "DeviceNum",
                     "RequiresScreening",
                     "NonScreenIndicators",
@@ -87,8 +90,6 @@ def process_folders(folders, overwrite=False):
             )
             writer.writeheader()
             writer.writerows(csv_rows)
-
-        # TODO: Implement N-back rule on CSV file
 
         print("Writing JSON File")
         with open(Path(folder) / "Square Eyes Detections.json", "w") as json_file:
@@ -115,8 +116,11 @@ def extract_timestamps(images):
         if not unclean_timestamp.startswith("TLC130"):
             return os.path.basename(image), ""
         clean_timestamp = unclean_timestamp.replace("TLC130 ", "").strip()
+        formatted_timestamp = datetime.strptime(
+            clean_timestamp, "%Y/%m/%d %H:%M:%S"
+        ).strftime("%Y-%m-%d %H:%M:%S")
 
-        return os.path.basename(image), clean_timestamp
+        return os.path.basename(image), formatted_timestamp
 
     with ThreadPool(multiprocessing.cpu_count()) as p:
         data = list(
@@ -142,9 +146,9 @@ def convert_prediction_csv(prediction):
         "RootFolder": "Images",
         "File": os.path.basename(image_path),
         "RelativePath": "images",
-        "Device_1": "",
-        "Device_2": "",
-        "Device_3": "",
+        "Device1": "",
+        "Device2": "",
+        "Device3": "",
         "DeviceNum": "",
         "RequiresScreening": "FALSE",
         "NonScreenIndicators": "FALSE",
@@ -156,7 +160,7 @@ def convert_prediction_csv(prediction):
         if label.startswith("Device Indicator"):
             out_row["NonScreenIndicators"] = "TRUE"
         else:
-            out_row[f"Device_{device_n}"] = label
+            out_row[f"Device{device_n}"] = label
             out_row["DeviceNum"] = device_n
             device_n += 1
 
@@ -215,3 +219,13 @@ def create_json_data():
         },
         "images": [],  # This will be populated dynamically
     }
+
+
+def calculate_n_back(data: list[dict], n=5):
+    for i in range(len(data)):
+        start_index = max(0, i - n)
+        end_index = min(len(data), i + n + 1)
+        for j in range(start_index, end_index):
+            data[j]["RequiresScreening"] = "TRUE"
+
+    return data

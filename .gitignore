@@ -92,4 +92,4 @@ target/
 *.pt
 !models/SquareEyes.pt
 runs/
-/scratch*
+**/scratch.*

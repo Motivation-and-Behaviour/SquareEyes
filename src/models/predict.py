@@ -6,4 +6,4 @@ class Predictor:
         self.model = YOLO(weights)
 
     def predict(self, images, verbose=False, stream=True):
-        return self.model(images, verbose=False, stream=True)
+        return self.model(images, verbose=False, stream=True, agnostic_nms=True)
