@@ -1,7 +1,7 @@
 SquareEyes
 ==============================
 
-<img src="Square_eyes.png" width=25%>
+<img src="docs/assets/SquareEyes.png" width=25%>
 
 Codebase for the Square Eyes research project.
 

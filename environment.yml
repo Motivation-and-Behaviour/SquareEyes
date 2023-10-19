@@ -32,3 +32,8 @@ dependencies:
       - label-studio
       - label-studio-converter
       - clearml
+      - mkdocs
+      - mkdocs-material 
+      - mkdocs-git-revision-date-localized-plugin 
+      - mkdocs-git-authors-plugin
+      - mkdocstrings
