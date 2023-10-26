@@ -10,13 +10,18 @@ markdown_extensions:
   - admonition
   - def_list
   - footnotes
-  - toc:
-      permalink: true
+  - pymdownx.caret
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
   - pymdownx.details
   - pymdownx.snippets
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
+  - toc:
+      permalink: true
 theme:
   name: material
   features:
@@ -50,7 +55,6 @@ nav:
       - Ethics:
           - coding_manual/ethics/index.md
           - coding_manual/ethics/guidelines.md
-          - coding_manual/ethics/processes.md
           - coding_manual/ethics/declaration.md
       - Coding Rules:
           - coding_manual/coding_rules/index.md

@@ -34,3 +34,32 @@ Throughout the manual, we use the following terms:
 
 **Screen Media**
 :   Content on any technology platform with a screen.
+
+## Key Contacts
+
+### Project Lead
+
+![Taren profile](https://www.gravatar.com/avatar/8d47ff8fc460d3601c2533359c394a80?size=200){ align=left }
+
+#### Taren Sanders
+
+:material-email: [Taren.Sanders@acu.edu.au](mailto:taren.sanders@acu.edu.au)
+
+**Contact for:**
+
+* Ethics issues
+* Illegal or inappropriate images
+* Coding or data issues
+
+### Project Officer
+
+![Kirsty profile](https://www.gravatar.com/avatar/bc7839d60c5b01cee44949cdcc3b9fac?size=200){ align=left }
+
+#### Kirsty Bergan
+
+:material-email: [Kirsty.Bergan@acu.edu.au](mailto:kirsty.bergan@acu.edu.au)
+
+**Contact for:**
+
+* Network drive access
+* Contract issues

@@ -1,4 +1,4 @@
-# Ethics Training
+# Ethics Background
 
 As a coder, you will have access to the images collected during data collection.
 It is important to remember that these are captured by real people in their own homes, and they have put their trust in us to handle their data with care and respect.
@@ -35,9 +35,12 @@ Participants indicate on a spreadsheet any images they wish to have deleted, and
 All of this occurs before anyone on the research team views any of the images, with the goal that participants will remove any images that they feel are too personal.
 Participants have to review the images while someone from the research team is present to prevent them from making copies of the images (to further protect third-party privacy).
 
-## Additional Reading
+## Required Additional Reading
+
+Please also read [Ethical Framework for Wearable Camera Research](https://doi.org/10.1016/j.amepre.2012.11.006) by Kelly et al, which is the basis for our ethical guidelines.
+
+## Optional Additional Reading
 
 These documents might answer other questions you have about the ethics of the research, or how we created our guidelines:
 
 * [Australian Catholic University Research Code of Conduct](https://policies.acu.edu.au/736355)
-* [Ethical Framework for Wearable Camera Research](https://doi.org/10.1016/j.amepre.2012.11.006) by Kelly et al.
