@@ -76,7 +76,7 @@ target/
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-/data/
+*datasets/
 
 # Mac OS-specific storage files
 .DS_Store
@@ -87,3 +87,9 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# Models
+*.pt
+!models/SquareEyes.pt
+runs/
+**/scratch.*

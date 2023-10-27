@@ -2,6 +2,7 @@ name: square_eyes
 channels:
   - pytorch
   - nvidia
+  - conda-forge
   - defaults
 dependencies:
   - python=3.10.11
@@ -15,6 +16,7 @@ dependencies:
   - keras=2.12.0
   - numpy=1.23.5
   - pip>=23.0.1
+  - pytesseract
   - pytorch
   - pytorch-cuda=11.8
   - setuptools
@@ -24,3 +26,14 @@ dependencies:
   - pip:
       - opencv-python==4.7.0.72
       - ultralytics
+      - pycocotools>=2.0.0
+      - boto3
+      - kaggle
+      - label-studio
+      - label-studio-converter
+      - clearml
+      - mkdocs
+      - mkdocs-material 
+      - mkdocs-git-revision-date-localized-plugin 
+      - mkdocs-git-authors-plugin
+      - mkdocstrings
