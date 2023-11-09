@@ -15,7 +15,8 @@
 
 ## Additional Information
 
-* Only code images that have an active screen device present in the image (unless determined as a Not in Frame image following the coding rules). Do not code for inactive screen devices.
+* Only code images that have an active screen device present in the image (unless determined as a Not in Frame image following the coding rules).
+  Do not code for inactive screen devices.
 * If something is coded for as *Other*, try to include as much information as possible in the notes cell of that row explaining why it was coded as *Other*.
 * Flick through images prior to coding a screen exposure episode to gain an understanding of what is happening in the episode.
   Doing this will make it easier to code.

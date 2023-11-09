@@ -15,9 +15,12 @@ It will also help add context to some of the things you might see in images, suc
 ### Encrypted Write-Only SD Cards
 
 We use special *write-only* SD cards to capture images.
-These SD cards allow the camera to write data to the card, but not read it back. Specifically, we use the [swissbit iShield sd card](https://www.swissbit.com/en/products/security-products/ishield-archive-and-ishield-camera/). The cards are encrypted using a key known only to the data collection team.
+These SD cards allow the camera to write data to the card, but not read it back.
+Specifically, we use the [swissbit iShield sd card](https://www.swissbit.com/en/products/security-products/ishield-archive-and-ishield-camera/).
+The cards are encrypted using a key known only to the data collection team.
 
-Using these write-only cards means that the data are secure even if the camera is lost. It also protects third-party privacy, as participants cannot access the data on their camera.
+Using these write-only cards means that the data are secure even if the camera is lost.
+It also protects third-party privacy, as participants cannot access the data on their camera.
 
 ### Face Blurring
 
@@ -44,3 +47,4 @@ Please also read [Ethical Framework for Wearable Camera Research](https://doi.or
 These documents might answer other questions you have about the ethics of the research, or how we created our guidelines:
 
 * [Australian Catholic University Research Code of Conduct](https://policies.acu.edu.au/736355)
+* 
