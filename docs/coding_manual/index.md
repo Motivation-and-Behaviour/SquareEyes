@@ -23,17 +23,25 @@ Throughout the manual, we use the following terms:
 **Screen-based media device**
 :   A technology platform with a screen that displays visual content for the purpose of education, entertainment, or communication (e.g., a television, smartphone or tablet).
 
-**Active Screen-based media device**
-:   A screen-based media device that has the appearance of being turned ‘on’ (i.e., has an active screen). Indicated by having a bright screen or visible content displayed on the screen of the device. Only active devices count as screen exposure.
+**Active screen-based media device**
+:   A screen-based media device that has the appearance of being turned ‘on’ (i.e., has an active screen).'
+    Indicated by having a bright screen or visible content displayed on the screen of the device.
+    Only active devices count as screen exposure.
 
 **Inactive screen-based media device**
 :   A screen-based media device that has the appearance of being turned ‘off’ (i.e., a black screen) or having a screen that is not visible (e.g., a phone face down on the table).
 
-**Screen Exposure**
+**Screen exposure**
 :   An event or episode where a person is in the presence of one or more active screen-based media devices, regardless of whether or not the person is consciously attending to the device.
 
-**Screen Media**
+**Screen exposure episode**
+:   A sequence of the same screen exposure with the same device, content and context.
+    For example, a continuous period of watching television would be considered an episode.
+
+**Screen media**
 :   Content on any technology platform with a screen.
+
+If you come across another term you are unfamiliar with, check the [Codebook](coding_rules/codebook.md) to see if it is defined there.
 
 ## Key Contacts
 

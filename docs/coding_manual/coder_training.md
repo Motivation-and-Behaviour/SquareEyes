@@ -6,7 +6,7 @@ After coder training, coders should have a strong understanding of the ethical g
 Coder training includes four steps:
 
 1. Ethics training
-2. Coding rules familiarisation
+2. Coding process familiarisation
 3. Timelapse software familiarisation
 4. Image coding practice and evaluation
 
@@ -23,9 +23,9 @@ Before you begin coding, you should be able to check off all of the following it
 - [ ] Read Ethics training section of this manual.
 - [ ] Complete and sign the ethics declaration form.
 
-### Coding Rules Familiarisation
+### Coding Process Familiarisation
 
-- [ ] Read the coding rules section of this manual.
+- [ ] Read the coding process section of this manual.
 - [ ] Complete the examples.
 
 ### Timelapse Software Familiarisation

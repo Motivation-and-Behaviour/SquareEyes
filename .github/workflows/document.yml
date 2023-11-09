@@ -29,6 +29,7 @@ jobs:
             mkdocs-material \
             mkdocs-git-revision-date-localized-plugin \
             mkdocs-git-authors-plugin \
-            mkdocstrings
+            mkdocstrings \
+            mkdocs-glightbox
       - name: Build docs
         run: mkdocs gh-deploy --force
