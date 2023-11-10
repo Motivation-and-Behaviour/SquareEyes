@@ -12,7 +12,7 @@ Some of these rules may not make sense until you have also familiarised yourself
 
 Each image must be coded in chronological order as indicated by the image number.
 
-<!-- TODO: Clarify this rule. Why does this matter? -->
+<!-- TODO: Clarify this rule... Why does this matter? -->
 
 ## 2. Fully Blocked Images
 

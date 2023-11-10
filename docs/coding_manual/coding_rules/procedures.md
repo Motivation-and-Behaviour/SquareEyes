@@ -60,7 +60,7 @@ Any image or set of images where the image quality is so poor due to being blurr
 ### Poor Lighting
 
 Any image or set of images where the image quality is so poor due to lighting the coder is unable to confidently determine what is occurring in all aspects of the image.
-Poor lighting can include images that are too dark or too overexposed to accurately determine anything.
+Poor lighting can include images that are too dark or too overexposed to accurately code.
 
 <figure markdown>
   ![Lighting](../../imgs/examples/overexposed.jpg){ width="500" data-description="An example of an image that would be coded as uncodable because it is overexposed." }

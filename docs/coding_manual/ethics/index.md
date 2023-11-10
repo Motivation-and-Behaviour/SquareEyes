@@ -3,7 +3,7 @@
 As a coder, you will have access to the images collected during data collection.
 It is important to remember that these are captured by real people in their own homes, and they have put their trust in us to handle their data with care and respect.
 
-We've gone to great lengths to ensure that we maintain the privacy of participants, and also third-parties who may have been incidentally captured.
+We have gone to great lengths to ensure that we maintain the privacy of participants, and also third-parties who may have been incidentally captured.
 These procedures extend to the processes used during the coding of the data.
 
 Below are some of the procedures that are used during data collection to maintain privacy.

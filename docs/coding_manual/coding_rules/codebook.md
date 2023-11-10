@@ -147,7 +147,7 @@ That is, is the content intended to entertain or educate?
     That is, if a game has a violent component, the content should be coded as violent regardless of if the image displays the violence.
     A significant component of the content should be violent for it to be coded as violent content.
 
-    <!-- TODO: Is this definition clear enough? -->
+    <!-- TODO: Is this definition clear enough?? -->
 
 ## Context
 
