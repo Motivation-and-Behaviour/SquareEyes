@@ -1,0 +1,1480 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../procedures/">
+      
+      
+        <link rel="next" href="../../timelapse/">
+      
+      
+      <link rel="icon" href="../../../imgs/SquareEyes.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Codebook - Square Eyes Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#codebook" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Square Eyes Documentation" class="md-header__button md-logo" aria-label="Square Eyes Documentation" data-md-component="logo">
+      
+  <img src="../../../imgs/SquareEyes.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Square Eyes Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Codebook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Motivation-and-behaviour/squareeyes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  Coding Manual
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../model_docs/" class="md-tabs__link">
+          
+  
+  Model Docs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Square Eyes Documentation" class="md-nav__button md-logo" aria-label="Square Eyes Documentation" data-md-component="logo">
+      
+  <img src="../../../imgs/SquareEyes.png" alt="logo">
+
+    </a>
+    Square Eyes Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Motivation-and-behaviour/squareeyes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Coding Manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Coding Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coder_training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coder Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Ethics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ethics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ethics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethics Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ethics/guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethics Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ethics/declaration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethics Declaration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Coding Process
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Coding Process
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Coding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Rules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../procedures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Procedures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Codebook
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Codebook
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-terms" class="md-nav__link">
+    General Terms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device" class="md-nav__link">
+    Device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content" class="md-nav__link">
+    Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-type" class="md-nav__link">
+    Content Type
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passive-screen-media" class="md-nav__link">
+    Passive Screen Media
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-screen-media" class="md-nav__link">
+    Interactive Screen Media
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-purpose" class="md-nav__link">
+    Content Purpose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#violent-content" class="md-nav__link">
+    Violent Content
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+    <nav class="md-nav" aria-label="Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    Location
+  </a>
+  
+    <nav class="md-nav" aria-label="Location">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    Home
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public" class="md-nav__link">
+    Public
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transport" class="md-nav__link">
+    Transport
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-setting" class="md-nav__link">
+    Social Setting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-interactions" class="md-nav__link">
+    Social Interactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associated-behaviours" class="md-nav__link">
+    Associated Behaviours
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Timelapse Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Timelapse Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../timelapse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice_and_eval/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practice and Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Model Docs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Model Docs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../model_docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Model Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-terms" class="md-nav__link">
+    General Terms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device" class="md-nav__link">
+    Device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content" class="md-nav__link">
+    Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-type" class="md-nav__link">
+    Content Type
+  </a>
+  
+    <nav class="md-nav" aria-label="Content Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passive-screen-media" class="md-nav__link">
+    Passive Screen Media
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-screen-media" class="md-nav__link">
+    Interactive Screen Media
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-purpose" class="md-nav__link">
+    Content Purpose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#violent-content" class="md-nav__link">
+    Violent Content
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+    <nav class="md-nav" aria-label="Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#location" class="md-nav__link">
+    Location
+  </a>
+  
+    <nav class="md-nav" aria-label="Location">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#home" class="md-nav__link">
+    Home
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public" class="md-nav__link">
+    Public
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transport" class="md-nav__link">
+    Transport
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-setting" class="md-nav__link">
+    Social Setting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-interactions" class="md-nav__link">
+    Social Interactions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associated-behaviours" class="md-nav__link">
+    Associated Behaviours
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="codebook">Codebook<a class="headerlink" href="#codebook" title="Permanent link">&para;</a></h1>
+<p>This section defines the codes used in the coding software.
+In most cases, the terms will be familiar to you, but it's important that we all use the same definitions.</p>
+<h2 id="general-terms">General Terms<a class="headerlink" href="#general-terms" title="Permanent link">&para;</a></h2>
+<dl>
+<dt><code>Unclassifiable</code> <a name="unclassifiable"></a></dt>
+<dd>An image is to be coded as <code>Unclassifiable</code> if the coder cannot identify some aspect of the code.
+Images should be coded to the lowest level possible.
+For example, if a coder is confident that the content is interactive, but they cannot tell what category of interactive media it is, they should code the content as as <code>Unclassifiable - Interactive</code>.
+However, if the coder can not tell if the content is interactive or passive, it should just be coded as <code>Unclassifiable</code>.</dd>
+</dl>
+<h2 id="device">Device<a class="headerlink" href="#device" title="Permanent link">&para;</a></h2>
+<p>Devices are the technology platforms that display screen media.
+The definitions for the codes used to identify devices are listed below.</p>
+<dl>
+<dt><code>Mobile Device (Phone, iPod)</code></dt>
+<dd>A handheld device that can be used as a small computer, connect to the internet and run applications.
+Includes smartphones, feature phones and multi-purpose devices (e.g., Apple iPod Touch).</dd>
+<dt><code>Laptop Computer</code></dt>
+<dd>A computer that is battery operated and has an integrated screen.
+Indicated by an inbuilt keyboard.</dd>
+<dt><code>Tablet (iPad, eReader)</code></dt>
+<dd>A small, flat computer that is controlled by touching the screen with one’s finger or a special pen.
+Does not require a keyboard or mouse.
+Includes e-readers.</dd>
+<dt><code>Handheld Game Console</code></dt>
+<dd>Portable, self-contained devices that have a built-in screen, game controls and speakers.</dd>
+<dt><code>Television</code></dt>
+<dd>A device shaped like a box or rectangle with a screen that receives electrical signals and changes them into moving images.
+Can stand alone or be mounted to a wall.</dd>
+<dt><code>Desktop Computer</code></dt>
+<dd>A computer that fits on a desk but is not easily moved from place to place.
+Has a monitor, keyboard, mouse and tower.</dd>
+<dt><code>Digital Signage</code></dt>
+<dd>A screen-based media device that is in the form of a small to large billboard composed of LCD, LED or a similar display system.
+Includes digital sign boards, interactive direction signboards, electronic menus, billboards and similar display devices used for displaying visual information, promotional content and advertisements in public areas.</dd>
+<dt><code>Projector</code></dt>
+<dd>A device for showing films or images on a projection screen or other surfaces such as walls.
+Commonly used in movie theatres and schools.</dd>
+<dt><code>Not Elsewhere Classified</code></dt>
+<dd>Use this code when none of the previous codes cover the device in the image.
+Please also provide the device in the notes field.</dd>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+</dl>
+<h2 id="content">Content<a class="headerlink" href="#content" title="Permanent link">&para;</a></h2>
+<p>The content facet of the framework has been included to code the screen media that participants are exposed to.
+The content facet is made up of three sections: content type, content purpose, and violent content.</p>
+<h3 id="content-type">Content Type<a class="headerlink" href="#content-type" title="Permanent link">&para;</a></h3>
+<p>Content type refers to the type of screen media the participant is exposed to during screen exposure.
+The content type facet is made up of two categories: passive screen media and interactive screen media.</p>
+<dl>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+</dl>
+<h4 id="passive-screen-media">Passive Screen Media<a class="headerlink" href="#passive-screen-media" title="Permanent link">&para;</a></h4>
+<p>Screen media that requires no input or interaction during screen exposure, with the viewer only receiving screen-based information.
+For example, watching a TV show or reading.</p>
+<dl>
+<dt><code>Unclassifiable - Passive</code></dt>
+<dd>For use when the content is clearly passive, but cannot be confidently coded as one of the other options.
+See also <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+<dt><code>Programme/TV/Video</code></dt>
+<dd>Any form of TV Show, movie or video.
+Includes online videos (e.g., videos being viewed on YouTube).</dd>
+<dt><code>Reading</code></dt>
+<dd>Any form of reading on a digital device.
+This should typically be longer-form text (eBook, news article, etc) so that it is distinct from <a href="#general-internet"><code>General Internet</code></a>.</dd>
+</dl>
+<h4 id="interactive-screen-media">Interactive Screen Media<a class="headerlink" href="#interactive-screen-media" title="Permanent link">&para;</a></h4>
+<p>Screen media that requires real-time input from the child during the screen exposure.
+For example, playing video games or browsing online.</p>
+<dl>
+<dt><code>Unclassifiable - Interactive</code></dt>
+<dd>For use when the content is clearly interactive, but cannot be confidently coded as one of the other options.
+See also <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+<dt><code>General Internet</code> <a name="general-internet"></a></dt>
+<dd>Includes all internet-based activities other than those for social media, gaming activity or watching online videos.
+Browsing is characterised searching and brief interactions with websites.
+Includes online shopping, using google and searching, but should be distinct from <a href="#social-media"><code>Social Media</code></a>.</dd>
+<dt><code>Video Game</code></dt>
+<dd>Includes when a participant is playing a video game, or watching another person play a video game.</dd>
+<dt><code>Creation</code></dt>
+<dd>Creation screen media refers to visual content on screen-based media devices that has been created by the child.</dd>
+<dt><code>Communication</code></dt>
+<dd>Communication screen media refers to screen media that has the primary purpose of communicating with other people.
+Examples include messaging apps.</dd>
+<dt><code>Social Media</code> <a name="social-media"></a></dt>
+<dd>Websites, applications and computer programs that allow users to share information on the internet.
+Includes Facebook, Twitter, Instagram, Snapchat and blogs.</dd>
+</dl>
+<h3 id="content-purpose">Content Purpose<a class="headerlink" href="#content-purpose" title="Permanent link">&para;</a></h3>
+<p>Content purpose refers to the intended purpose of the content.
+That is, is the content intended to entertain or educate?</p>
+<dl>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+<dt><code>Educational</code></dt>
+<dd>Screen media created with the purpose to educate, inform and enlighten the viewer.
+Educational screen media includes screen media that appears to be educational.
+Includes creation applications, educational video games, programmes and internet based activities where it appears that the screen media is educational (e.g., watching an educational TV show or completing homework online).</dd>
+<dt><code>Recreational</code></dt>
+<dd>Screen media created with the purpose to entertain the viewer, with no intentional purpose to education, inform or enlighten.
+Includes programmes, video games and internet based activities where it appears that the screen media is recreational (e.g., most TV shows, most video games or online shopping).</dd>
+<dt><code>Social</code></dt>
+<dd>Screen media created with the purpose to communicate with others.
+Social screen media includes screen media that appears to be social.
+Includes social media and communication applications.</dd>
+<dt><code>Other</code></dt>
+<dd>Use this code when you feel that you could identify the purpose (i.e., not <code>Unclassifiable</code>) but none of these codes sufficiently describes the purpose.</dd>
+</dl>
+<h3 id="violent-content">Violent Content<a class="headerlink" href="#violent-content" title="Permanent link">&para;</a></h3>
+<dl>
+<dt><code>Violent Content</code></dt>
+<dd>
+<p>Screen media that contains violence.
+Violence is defined as the use of physical force to harm someone, to damage property, etc.
+This code refers to the <em>entirety</em> of the content, rather than just what is visible in the image.
+That is, if a game has a violent component, the content should be coded as violent regardless of if the image displays the violence.
+A significant component of the content should be violent for it to be coded as violent content.</p>
+<!-- TODO: Is this definition clear enough? -->
+</dd>
+</dl>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>The context dimension of the framework has been included to code the environment that the participant is when screen exposure occurs.
+The content dimension is made up of four facets: location, social setting, social interactions and associated behaviours.</p>
+<h3 id="location">Location<a class="headerlink" href="#location" title="Permanent link">&para;</a></h3>
+<p>Location refers to the place or type of surroundings where the participant’s screen exposure occurs.
+This section is made up of three categories: home, public, and transport.</p>
+<dl>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+</dl>
+<h4 id="home">Home<a class="headerlink" href="#home" title="Permanent link">&para;</a></h4>
+<dl>
+<dt><code>Bedroom</code></dt>
+<dd>A room or space used for sleeping in.
+Indicated by the presence of a piece of furniture for sleep or rest, typically a bed.</dd>
+<dt><code>Living room</code></dt>
+<dd>A room or space that is used for relaxing in and entertaining guests.
+Indicated by furniture - e.g., lounge, coffee table, TV etc.</dd>
+<dt><code>Kitchen</code></dt>
+<dd>A room or space where food is kept, prepared, cooked and eaten.
+Indicated by the presence of cooking appliances, such as a stove, refrigerator, microwave.</dd>
+<dt><code>Dining Room</code></dt>
+<dd>Indicated by the presence of a flat surface such as a table, on which meals are served on.</dd>
+<dt><code>Home - Outside</code></dt>
+<dd>A space outdoors within the home gates and boundaries, such as a backyard or front yard.
+Indicated by grass, pavement or sunlight within the home gates and boundaries.</dd>
+<dt><code>Home - Other</code></dt>
+<dd>A room or space in the home such as a home office.</dd>
+</dl>
+<h4 id="public">Public<a class="headerlink" href="#public" title="Permanent link">&para;</a></h4>
+<dl>
+<dt><code>Public - Outside</code></dt>
+<dd>Any outdoor space that is not part of a home.
+The roads or public areas of a city or town.
+Includes roads, footpaths and outside of private properties, community venues and retail outlets.</dd>
+<dt><code>Retail Space</code></dt>
+<dd>A place/space where goods are sold to the public.
+Includes general product retailers, such as stores, supermarkets, service stations and shopping malls.</dd>
+<dt><code>Recreation Space</code></dt>
+<dd>A place/space located outside rather than inside a building.
+A place/space where individuals participate or watch organised sports.
+Includes parks, beaches, rivers, walking tracks, public swimming pools, indoor sports stadiums, outdoor sports stadiums and sports grounds.</dd>
+</dl>
+<h4 id="transport">Transport<a class="headerlink" href="#transport" title="Permanent link">&para;</a></h4>
+<dl>
+<dt><code>Transport - Private</code></dt>
+<dd>Inside a car, van or truck.</dd>
+<dt><code>Transport - Public</code></dt>
+<dd>Inside a bus, train, aeroplane, ferry.</dd>
+<dt><code>Transport - Unclear</code></dt>
+<dd>Used when you cannot tell if the transportation is private or public.</dd>
+</dl>
+<h3 id="social-setting">Social Setting<a class="headerlink" href="#social-setting" title="Permanent link">&para;</a></h3>
+<p>Social setting refers to who the participant is with during screen exposure.
+This section is made up of five categories (alone, single adult, adults only, children only and mixed ages).
+Indicators include another person being visible in the image.</p>
+<dl>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+<dt><code>Alone</code></dt>
+<dd>No one else is visible in the image.</dd>
+<dt><code>Single Adult Only</code></dt>
+<dd>One person who appears to be over 18 years of age is visible in the image.</dd>
+<dt><code>Single Child Only</code></dt>
+<dd>ne person who appears to be under 18 years of age.</dd>
+<dt><code>Adults Only</code></dt>
+<dd>People who appear to be over 18 years of age are visible in the image only (must be multiple people)</dd>
+<dt><code>Children Only</code></dt>
+<dd>One or more people who appear to be under 18 years of age.</dd>
+<dt><code>Mixed Ages</code></dt>
+<dd>Multiple people in the image who are children and adults.</dd>
+</dl>
+<h3 id="social-interactions">Social Interactions<a class="headerlink" href="#social-interactions" title="Permanent link">&para;</a></h3>
+<dl>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+<dt><code>Not interacting</code></dt>
+<dd>There is no one else in the image, or the other person/people in the image are not interacting with the participant.</dd>
+<dt><code>Co-participating</code></dt>
+<dd>When the child and another person are actively using a screen-based media device together.
+For example,a parent playing a video game with their child.</dd>
+<dt><code>Co-viewing</code></dt>
+<dd>When the child and another person are watching the same screen-based media device.
+Indicated by other people's body positioning facing the device.
+For example, a parent and child watching a TV show together.</dd>
+</dl>
+<h3 id="associated-behaviours">Associated Behaviours<a class="headerlink" href="#associated-behaviours" title="Permanent link">&para;</a></h3>
+<p>Associated behaviours refers to co-occurring actions or tasks the child undertakes during screen exposure that is of interest to researchers.
+Remember that these activities are only coded during a <abbr title="A sequence of the same screen exposure with the same device, content and context.">screen exposure episode</abbr>.
+That is, if there is no screen exposure you do not need to code these behaviours.</p>
+<dl>
+<dt><code>No behaviour</code></dt>
+<dd>Used when there is no co-occuring behaviour of interest.</dd>
+<dt><code>Unclassifiable</code></dt>
+<dd>See <a href="#unclassifiable">Unclassifiable</a> in <a href="#general-terms">General Terms</a>.</dd>
+<dt><code>Food or beverage</code></dt>
+<dd>The presence or observed consumption of food in an image.</dd>
+<dt><code>Homework</code></dt>
+<dd>Non-screen based homework activities.</dd>
+<dt><code>Other multitasking</code></dt>
+<dd>When a participant engages in another task or multiple tasks during screen exposure.</dd>
+</dl>
+<!-- Note: had to be outside of /docs to prevent mkdocs warning -->
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 9, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../procedures/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Coding Procedures">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Coding Procedures
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../timelapse/" class="md-footer__link md-footer__link--next" aria-label="Next: Index">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Index
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.tabs.link", "content.tooltips", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

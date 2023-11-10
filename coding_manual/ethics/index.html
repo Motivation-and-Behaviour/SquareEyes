@@ -15,8 +15,8 @@
         <link rel="next" href="guidelines/">
       
       
-      <link rel="icon" href="../../assets/SquareEyes.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <link rel="icon" href="../../imgs/SquareEyes.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -48,7 +48,7 @@
     
       <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../stylesheets/acu.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -57,7 +57,18 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -91,7 +102,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Square Eyes Documentation" class="md-header__button md-logo" aria-label="Square Eyes Documentation" data-md-component="logo">
       
-  <img src="../../assets/SquareEyes.png" alt="logo">
+  <img src="../../imgs/SquareEyes.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -264,7 +275,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Square Eyes Documentation" class="md-nav__button md-logo" aria-label="Square Eyes Documentation" data-md-component="logo">
       
-  <img src="../../assets/SquareEyes.png" alt="logo">
+  <img src="../../imgs/SquareEyes.png" alt="logo">
 
     </a>
     Square Eyes Documentation
@@ -563,7 +574,7 @@
         
   
   <span class="md-ellipsis">
-    Declaration
+    Ethics Declaration
   </span>
   
 
@@ -606,7 +617,7 @@
             
   
   <span class="md-ellipsis">
-    Coding Rules
+    Coding Process
   </span>
   
 
@@ -616,7 +627,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            Coding Rules
+            Coding Process
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -630,7 +641,67 @@
         
   
   <span class="md-ellipsis">
-    Index
+    Introduction to Coding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding_rules/rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Rules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding_rules/procedures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding Procedures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding_rules/codebook/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Codebook
   </span>
   
 
@@ -721,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../practice_and_evaluation.md" class="md-nav__link">
+      <a href="../practice_and_eval/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -911,8 +982,11 @@ It will also help add context to some of the things you might see in images, suc
 <h2 id="data-collection-privacy">Data Collection Privacy<a class="headerlink" href="#data-collection-privacy" title="Permanent link">&para;</a></h2>
 <h3 id="encrypted-write-only-sd-cards">Encrypted Write-Only SD Cards<a class="headerlink" href="#encrypted-write-only-sd-cards" title="Permanent link">&para;</a></h3>
 <p>We use special <em>write-only</em> SD cards to capture images.
-These SD cards allow the camera to write data to the card, but not read it back. Specifically, we use the <a href="https://www.swissbit.com/en/products/security-products/ishield-archive-and-ishield-camera/">swissbit iShield sd card</a>. The cards are encrypted using a key known only to the data collection team.</p>
-<p>Using these write-only cards means that the data are secure even if the camera is lost. It also protects third-party privacy, as participants cannot access the data on their camera.</p>
+These SD cards allow the camera to write data to the card, but not read it back.
+Specifically, we use the <a href="https://www.swissbit.com/en/products/security-products/ishield-archive-and-ishield-camera/">swissbit iShield sd card</a>.
+The cards are encrypted using a key known only to the data collection team.</p>
+<p>Using these write-only cards means that the data are secure even if the camera is lost.
+It also protects third-party privacy, as participants cannot access the data on their camera.</p>
 <h3 id="face-blurring">Face Blurring<a class="headerlink" href="#face-blurring" title="Permanent link">&para;</a></h3>
 <p>When the images are exported off the camera, they are processed using a face detection algorithm.
 Each time a face is detected, the region with the face is blurred and only the blurred version of the image is retained.
@@ -930,14 +1004,16 @@ Participants have to review the images while someone from the research team is p
 <p>These documents might answer other questions you have about the ethics of the research, or how we created our guidelines:</p>
 <ul>
 <li><a href="https://policies.acu.edu.au/736355">Australian Catholic University Research Code of Conduct</a></li>
+<li></li>
 </ul>
+<!-- Note: had to be outside of /docs to prevent mkdocs warning -->
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 9, 2023</span>
       
     
   </small>
@@ -1031,8 +1107,8 @@ Participants have to review the images while someone from the research team is p
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.tabs.link", "content.tooltips", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
