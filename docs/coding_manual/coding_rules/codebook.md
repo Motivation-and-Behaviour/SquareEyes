@@ -16,6 +16,13 @@ In most cases, the terms will be familiar to you, but it's important that we all
 Devices are the technology platforms that display screen media.
 The definitions for the codes used to identify devices are listed below.
 
+???+ note
+
+    Some of the fields such as device are duplicated (i.e., device1, device2, etc).
+    This allows multiple devices to be coded.
+    These should always be coded in descending order of attention.
+    For example, if a child is using a mobile phone while a television is on in the background, Device1 would be the mobile phone and Device2 would be the television.
+
 `Mobile Device (Phone, iPod)`
 :   A handheld device that can be used as a small computer, connect to the internet and run applications.
     Includes smartphones, feature phones and multi-purpose devices (e.g., Apple iPod Touch).

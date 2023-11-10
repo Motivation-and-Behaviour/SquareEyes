@@ -16,16 +16,20 @@
     "glightbox",
     "Kirsty",
     "mkdocs",
+    "mozallowfullscreen",
+    "nessassary",
     "swissbit",
     "Taren",
     "Timelapse",
     "Uncodable",
+    "webkitallowfullscreen",
     "Willetts"
   ],
   "markdownlint.ignore": [
     "assets/*"
   ],
   "markdownlint.config": {
-    "MD033": false
+    "MD033": false, // Inline HTML
+    "MD046": false // Ignore code block format
   }
 }
