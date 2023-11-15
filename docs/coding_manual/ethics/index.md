@@ -47,4 +47,3 @@ Please also read [Ethical Framework for Wearable Camera Research](https://doi.or
 These documents might answer other questions you have about the ethics of the research, or how we created our guidelines:
 
 * [Australian Catholic University Research Code of Conduct](https://policies.acu.edu.au/736355)
-* 
