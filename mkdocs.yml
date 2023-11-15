@@ -1,22 +1,28 @@
 site_name: Square Eyes Documentation
 plugins:
-  - search
   - git-authors
   - git-revision-date-localized
+  - glightbox:
+      auto_caption: true
   - mkdocstrings
+  - search
 markdown_extensions:
   - abbr
   - attr_list
   - admonition
   - def_list
   - footnotes
+  - md_in_html
   - pymdownx.caret
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.keys
   - pymdownx.details
-  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      auto_append:
+        - assets/glossary.md
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
@@ -42,10 +48,10 @@ theme:
     scheme: default
     primary: custom
     accent: custom
-  logo: assets/SquareEyes.png
-  favicon: assets/SquareEyes.png
+  logo: imgs/SquareEyes.png
+  favicon: imgs/SquareEyes.png
 extra_css:
-  - stylesheets/acu.css
+  - stylesheets/extra.css
 repo_url: https://github.com/Motivation-and-behaviour/squareeyes
 nav:
   - Home: index.md
@@ -56,10 +62,15 @@ nav:
           - coding_manual/ethics/index.md
           - coding_manual/ethics/guidelines.md
           - coding_manual/ethics/declaration.md
-      - Coding Rules:
+      - Coding Process:
           - coding_manual/coding_rules/index.md
+          - coding_manual/coding_rules/rules.md
+          - coding_manual/coding_rules/procedures.md
+          - coding_manual/coding_rules/codebook.md
       - Timelapse Software:
           - coding_manual/timelapse/index.md
-      - Practice and Evaluation: coding_manual/practice_and_evaluation.md
+          - coding_manual/timelapse/setup.md
+          - coding_manual/timelapse/coding.md
+      - Practice and Evaluation: coding_manual/practice_and_eval.md
   - Model Docs:
       - model_docs/index.md

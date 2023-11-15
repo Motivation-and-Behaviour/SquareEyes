@@ -34,7 +34,7 @@ If coders leave their computer for any amount of time they must log out or lock 
 If you are signed into a computer which has access to the network drive, you must log out or lock the computer when you leave it for any period of time.
 On Windows, you can lock the computer by pressing ++win+l++.
 
-Please don't lock the computer when you are finished for the day - make sure that you log out instead.
+Please do not lock the computer when you are finished for the day - make sure that you log out instead.
 
 ## Guideline 5: Participant Privacy
 

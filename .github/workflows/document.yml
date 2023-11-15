@@ -3,11 +3,30 @@ on:
     branches:
       - main
       - master
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]
 
 name: mkdocs
 
 jobs:
+  check-deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy-status: ${{ steps.check.outputs.triggered }} 
+    steps:
+      - uses: shanegenschaw/pull-request-comment-trigger@v2.1.0
+        id: check
+        with:
+          trigger: '/deploy'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
   deploy:
+    needs: check-deploy
+    if: (github.event_name == 'push') || (needs.check-deploy.outputs.deploy-status == 'true')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +48,7 @@ jobs:
             mkdocs-material \
             mkdocs-git-revision-date-localized-plugin \
             mkdocs-git-authors-plugin \
-            mkdocstrings
+            mkdocstrings \
+            mkdocs-glightbox
       - name: Build docs
         run: mkdocs gh-deploy --force

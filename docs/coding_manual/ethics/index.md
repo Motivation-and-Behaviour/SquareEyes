@@ -3,7 +3,7 @@
 As a coder, you will have access to the images collected during data collection.
 It is important to remember that these are captured by real people in their own homes, and they have put their trust in us to handle their data with care and respect.
 
-We've gone to great lengths to ensure that we maintain the privacy of participants, and also third-parties who may have been incidentally captured.
+We have gone to great lengths to ensure that we maintain the privacy of participants, and also third-parties who may have been incidentally captured.
 These procedures extend to the processes used during the coding of the data.
 
 Below are some of the procedures that are used during data collection to maintain privacy.
@@ -15,9 +15,12 @@ It will also help add context to some of the things you might see in images, suc
 ### Encrypted Write-Only SD Cards
 
 We use special *write-only* SD cards to capture images.
-These SD cards allow the camera to write data to the card, but not read it back. Specifically, we use the [swissbit iShield sd card](https://www.swissbit.com/en/products/security-products/ishield-archive-and-ishield-camera/). The cards are encrypted using a key known only to the data collection team.
+These SD cards allow the camera to write data to the card, but not read it back.
+Specifically, we use the [swissbit iShield sd card](https://www.swissbit.com/en/products/security-products/ishield-archive-and-ishield-camera/).
+The cards are encrypted using a key known only to the data collection team.
 
-Using these write-only cards means that the data are secure even if the camera is lost. It also protects third-party privacy, as participants cannot access the data on their camera.
+Using these write-only cards means that the data are secure even if the camera is lost.
+It also protects third-party privacy, as participants cannot access the data on their camera.
 
 ### Face Blurring
 
