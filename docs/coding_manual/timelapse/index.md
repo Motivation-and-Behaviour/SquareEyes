@@ -8,7 +8,7 @@ The next sections describe how to install Timelapse, and how to apply the rules 
 
 ## Installation
 
-You can download the Timelapse software from the [Timelapse website](https://saul.cpsc.ucalgary.ca/timelapse/uploads/Installs/Timelapse2/Timelapse2-Executables.zips).
+You can download the Timelapse software from the [Timelapse website](https://saul.cpsc.ucalgary.ca/timelapse/uploads/Installs/Timelapse2/Timelapse2-Executables.zip).
 
 The instructions provided [on the Timelapse website](https://saul.cpsc.ucalgary.ca/timelapse/pmwiki.php?n=Main.Download2) explain how to extract and run the software.
 To code images, you only need the `Timelapse2.exe` file - you won't need to use the template editor.
