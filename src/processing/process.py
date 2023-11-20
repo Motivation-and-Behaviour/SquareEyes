@@ -122,9 +122,12 @@ def extract_timestamps(images):
         if not unclean_timestamp.startswith("TLC130"):
             return os.path.basename(image), ""
         clean_timestamp = unclean_timestamp.replace("TLC130 ", "").strip()
-        formatted_timestamp = datetime.strptime(
-            clean_timestamp, "%Y/%m/%d %H:%M:%S"
-        ).strftime("%Y-%m-%d %H:%M:%S")
+        try:
+            formatted_timestamp = datetime.strptime(
+                clean_timestamp, "%Y/%m/%d %H:%M:%S"
+            ).strftime("%Y-%m-%d %H:%M:%S")
+        except ValueError:
+            return os.path.basename(image), ""  # Invalid timestamp
 
         return os.path.basename(image), formatted_timestamp
 
