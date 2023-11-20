@@ -27,11 +27,17 @@ def process_folders(folders, n_back=5, overwrite=False):
     # Initialize the predictor
     predictor = Predictor()
 
-    for folder in tqdm(folders, desc="Processing folders", position=0, leave=True):
+    pbar = tqdm(folders, desc="Processing folders", position=0, leave=True)
+
+    for folder in pbar:
         marker_file = Path(folder) / ".converted"
         if marker_file.exists() and not overwrite:
             print(f"{folder} has already been processed")
             continue
+
+        folder_id = folder.split("/")[-3]
+
+        pbar.set_description(f"Processing folders ({folder_id})")
 
         # TODO: Check that folder structure meets requirements
         # Copy the template file into the folder
