@@ -118,7 +118,10 @@ def extract_timestamps(images):
         roi = cv2.copyMakeBorder(
             roi, 15, 15, 0, 0, cv2.BORDER_CONSTANT, value=[255, 255, 255]
         )
-        unclean_timestamp = pytesseract.image_to_string(roi, lang="eng")
+        try:
+            unclean_timestamp = pytesseract.image_to_string(roi, lang="eng")
+        except TypeError:
+            return os.path.basename(image), ""  # Problem with image file
         if not unclean_timestamp.startswith("TLC130"):
             return os.path.basename(image), ""
         clean_timestamp = unclean_timestamp.replace("TLC130 ", "").strip()
