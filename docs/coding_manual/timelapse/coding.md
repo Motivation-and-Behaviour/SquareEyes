@@ -37,6 +37,18 @@ This is really only handy for filling in the coder name.
 
 <div style="position: relative; padding-bottom: 66.66666666666666%; height: 0;"><iframe src="https://www.loom.com/embed/3023bc902bbe4fbc96c3637a06331084?sid=be904eba-a4fb-4419-b061-11cee5a4b666" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+### QuickPaste
+
+You'll often find that participants engage in the same behaviours repeatedly, sometimes with short breaks in between.
+Timelapse has a built-in function to help with this called QuickPaste.
+QuickPaste lets you copy the codes from an image, and apply it on one or multiple images.
+You can make as many of these as you want.[^2]
+
+[^2]:
+    You should give them proper names though, so you know what they do.
+
+<div style="position: relative; padding-bottom: 76.47534357316087%; height: 0;"><iframe src="https://www.loom.com/embed/e51565dbcd2b4dbba618d2136712bb6f?sid=7c1021a7-1967-4330-bb40-8e2cbd70705f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
 ### Zooming Out and Coding Multiple
 
 One of the best features in Timelapse is that you can code multiple images with the same codes all at once.
@@ -66,4 +78,8 @@ The machine learning model orders the devices by how confident it is in the pred
 But, this can mean that Device1 is just the most prominent device, and not the device receiving the most attention.
 This can vary even across similar looking images, so pay attention to which device has been put in which field.
 
-###
+### Not Clearing Erroneous Predictions
+
+It's easy to skip over images that obviously don't contain screens.
+But, make sure that there is not an erroneous prediction from the machine learning model on this image, because it will get mixed into the results.
+A good option is to make a 'clear' [QuickPaste](#quickpaste) code to quickly clear these images.

@@ -99,6 +99,9 @@ For example, playing video games or browsing online.
 
 `Unclassifiable - Interactive`
 :   For use when the content is clearly interactive, but cannot be confidently coded as one of the other options.
+    We also use this code as a catch all for small interactions with a device as part of another activity.
+    For example, unlocking the device or navigating to a different app.
+    There are interactive (as the participant is interacting with the device), but don't warrant a full code.
     See also [Unclassifiable](#unclassifiable) in [General Terms](#general-terms).
 
 `General Internet` <a name="general-internet"></a>
