@@ -72,5 +72,6 @@ nav:
           - coding_manual/timelapse/setup.md
           - coding_manual/timelapse/coding.md
       - Practice and Evaluation: coding_manual/practice_and_eval.md
+      - Summary and Checklist: coding_manual/checklist.md
   - Model Docs:
       - model_docs/index.md
