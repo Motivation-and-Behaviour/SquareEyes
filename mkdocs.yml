@@ -74,3 +74,4 @@ nav:
       - Practice and Evaluation: coding_manual/practice_and_eval.md
   - Model Docs:
       - model_docs/index.md
+      - model_docs/install.md
