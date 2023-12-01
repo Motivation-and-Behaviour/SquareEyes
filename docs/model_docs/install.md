@@ -63,3 +63,4 @@ Your prompt should now start with `(square_eyes)` to indicate that the environme
 
 ## Test the Setup
 
+The best way to test if everything is working correctly would be to run the example Jupyter notebook located at `notebooks/example.ipynb`.
