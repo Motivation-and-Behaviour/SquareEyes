@@ -18,7 +18,6 @@ jobs:
     steps:
       - name: Check for deploy trigger
         id: check
-        if: github.event_name == 'pull_request'
         uses: shanegenschaw/pull-request-comment-trigger@v2.1.0
         with:
           trigger: '/deploy'
@@ -49,7 +48,7 @@ jobs:
           pip install \
             mkdocs-material \
             mkdocs-git-revision-date-localized-plugin \
-            mkdocs-git-authors-plugin \
+            mkdocs-git-committers-plugin-2 \
             mkdocstrings \
             mkdocs-glightbox
       - name: Build docs
