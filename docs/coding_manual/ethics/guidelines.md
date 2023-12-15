@@ -24,7 +24,10 @@ Coders must not share their access passwords with anyone or give access to the A
 
 We'll provide access to the network drive during your time as a coder.
 When you finish coding, we'll revoke your access to the network drive.
-Don't copy or move any of the files off the network drive.
+Don't copy or move any of the files off the network drive.[^1]
+
+[^1]: We make a limited exception for creating local caches under certain circumstances.
+      See [Create a Local Cache](../../timelapse/setup/#create-a-local-cache) for more details.
 
 ## Guideline 4: Computer Security
 

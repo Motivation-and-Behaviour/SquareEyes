@@ -58,10 +58,36 @@ Finally, there's a folder that contains the images (`images`).
 
 There are four steps before you start coding:
 
+0. (Optional) Create a local cache.
 1. Load the timelapse template.
 2. Import the pre-coded data.
 3. Load the annotations.
 4. Configure the settings.
+
+### Create a Local Cache
+
+Coding images off the network drive is incredibly slow.
+This becomes a problem, especially when you try to code multiple images at once.
+To get around this, you can create a local cache (a copy of the files) locally, and then sync them back to the network drive when you're done.
+To create a local cache, the following conditions need to be met:
+
+* You must be on an ACU computer, and not a personal machine
+* You must only copy the files to a location which is not synced.
+  On ACU computers, this can include the desktop, so check which folders OneDrive backs up *before* starting a copy.
+
+To create a local cache, create a folder in a non-synced location that will temporarily hold participant data.
+Within this folder, create a new folder named after the participant ID (e.g., `1234`).
+Within this folder, create a folder called `Images`.
+This means that you have kept the same folder structure as the network drive (you do not need to create a timepoint folder).
+
+You can then copy the `images` folder, `Image Data Import.csv`, `Square Eyes Detections.json`, and `SquareEyes Template.tdb` into the local `Images` folder, then follow the steps below as normal.
+
+When you are finished coding, copy only the `SquareEyes Template.ddb` and `Backups` folder onto the network drive, overwriting the existing files if they exist.
+Delete all the remaining files from the local cache before continuing.
+
+???+ warning
+    **Do not copy the other files or images back to the network drive.**
+    This increases the risk of data corruption and is unnecessary.
 
 ### Load the Timelapse Template
 
