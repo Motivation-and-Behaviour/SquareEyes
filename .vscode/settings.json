@@ -31,5 +31,6 @@
   "markdownlint.config": {
     "MD033": false, // Inline HTML
     "MD046": false // Ignore code block format
-  }
+  },
+  "cSpell.enabled": true
 }
