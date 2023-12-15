@@ -1,6 +1,8 @@
 site_name: Square Eyes Documentation
 plugins:
-  - git-authors
+  - git-committers:
+      repository: Motivation-and-Behaviour/SquareEyes
+      branch: master
   - git-revision-date-localized
   - glightbox:
       auto_caption: true

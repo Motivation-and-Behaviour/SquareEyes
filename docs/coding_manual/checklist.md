@@ -48,3 +48,9 @@ This must be done after you complete coding for each participant.
 
 - [ ] Only paste the “SquareEyes Detections.ddb” and “Backups” folder back into the corresponding participant folder on the network folder.
       It should replace the existing files if they exist for this participant.
+
+## Video Demo
+
+Below is a video that shows the full process of setting up Timelapse and coding a participant.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/cd90a538e08b4248aa8f1a24f0833225?sid=c67895ec-1fab-405d-bc47-faedc3324424" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
