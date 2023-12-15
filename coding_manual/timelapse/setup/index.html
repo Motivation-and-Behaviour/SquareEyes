@@ -777,6 +777,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#create-a-local-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Local Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#load-the-timelapse-template" class="md-nav__link">
     <span class="md-ellipsis">
       Load the Timelapse Template
@@ -1039,6 +1048,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#create-a-local-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Local Cache
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#load-the-timelapse-template" class="md-nav__link">
     <span class="md-ellipsis">
       Load the Timelapse Template
@@ -1146,11 +1164,34 @@ It probably means that folder hasn't been processed yet.</p>
 <h2 id="loading-images-and-annotations">Loading Images and Annotations<a class="headerlink" href="#loading-images-and-annotations" title="Permanent link">&para;</a></h2>
 <p>There are four steps before you start coding:</p>
 <ol>
+<li>(Optional) Create a local cache.</li>
 <li>Load the timelapse template.</li>
 <li>Import the pre-coded data.</li>
 <li>Load the annotations.</li>
 <li>Configure the settings.</li>
 </ol>
+<h3 id="create-a-local-cache">Create a Local Cache<a class="headerlink" href="#create-a-local-cache" title="Permanent link">&para;</a></h3>
+<p>Coding images off the network drive is incredibly slow.
+This becomes a problem, especially when you try to code multiple images at once.
+To get around this, you can create a local cache (a copy of the files) locally, and then sync them back to the network drive when you're done.
+To create a local cache, the following conditions need to be met:</p>
+<ul>
+<li>You must be on an ACU computer, and not a personal machine</li>
+<li>You must only copy the files to a location which is not synced.
+  On ACU computers, this can include the desktop, so check which folders OneDrive backs up <em>before</em> starting a copy.</li>
+</ul>
+<p>To create a local cache, create a folder in a non-synced location that will temporarily hold participant data.
+Within this folder, create a new folder named after the participant ID (e.g., <code>1234</code>).
+Within this folder, create a folder called <code>Images</code>.
+This means that you have kept the same folder structure as the network drive (you do not need to create a timepoint folder).</p>
+<p>You can then copy the <code>images</code> folder, <code>Image Data Import.csv</code>, <code>Square Eyes Detections.json</code>, and <code>SquareEyes Template.tdb</code> into the local <code>Images</code> folder, then follow the steps below as normal.</p>
+<p>When you are finished coding, copy only the <code>SquareEyes Template.ddb</code> and <code>Backups</code> folder onto the network drive, overwriting the existing files if they exist.
+Delete all the remaining files from the local cache before continuing.</p>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p><strong>Do not copy the other files or images back to the network drive.</strong>
+This increases the risk of data corruption and is unnecessary.</p>
+</details>
 <h3 id="load-the-timelapse-template">Load the Timelapse Template<a class="headerlink" href="#load-the-timelapse-template" title="Permanent link">&para;</a></h3>
 <p>Start by opening Timelapse, the click on <code>File &gt; Load template, images, and video files...</code>.
 Navigate to the folder of the participant you're coding, and select the <code>SquareEyes Template.tdb</code> file.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
@@ -1218,7 +1259,7 @@ It will almost certainly take longer when you are doing it.&#160;<a class="footn
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 15, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2023</span>
   </span>
 
     
