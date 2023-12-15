@@ -49,7 +49,7 @@ jobs:
           pip install \
             mkdocs-material \
             mkdocs-git-revision-date-localized-plugin \
-            mkdocs-git-authors-plugin \
+            mkdocs-git-committers-plugin-2 \
             mkdocstrings \
             mkdocs-glightbox
       - name: Build docs
