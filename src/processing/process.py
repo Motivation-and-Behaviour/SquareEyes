@@ -176,10 +176,11 @@ def convert_prediction_csv(prediction):
             out_row["DeviceNum"] = device_n
             device_n += 1
 
-        out_row["RequiresScreening"] = "TRUE"
-
         if device_n > 3:
             break
+
+    if out_row["Device1"] != "" or out_row["NonScreenIndicators"] == "TRUE":
+        out_row["RequiresScreening"] = "TRUE"
 
     return out_row
 
@@ -234,10 +235,21 @@ def create_json_data():
 
 
 def calculate_n_back(data: list[dict], n=5):
-    for i in range(len(data)):
-        start_index = max(0, i - n)
-        end_index = min(len(data), i + n + 1)
-        for j in range(start_index, end_index):
-            data[j]["RequiresScreening"] = "TRUE"
-
+    data = sorted(data, key=lambda x: x["File"])
+    i = 0
+    while i < len(data):
+        if data[i]["RequiresScreening"] == "TRUE":
+            start_index = max(0, i - n)
+            end_index = min(len(data) - 1, i + n)
+            j = start_index
+            while j < i:  # Below the main pointer, no need to check
+                data[j]["RequiresScreening"] = "TRUE"
+                j += 1
+            while j <= end_index:
+                if data[j]["RequiresScreening"] == "TRUE":
+                    end_index = min(len(data) - 1, j + n)
+                data[j]["RequiresScreening"] = "TRUE"
+                j += 1
+            i = end_index
+        i += 1
     return data
