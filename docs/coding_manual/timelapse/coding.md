@@ -83,3 +83,8 @@ This can vary even across similar looking images, so pay attention to which devi
 It's easy to skip over images that obviously don't contain screens.
 But, make sure that there is not an erroneous prediction from the machine learning model on this image, because it will get mixed into the results.
 A good option is to make a 'clear' [QuickPaste](#quickpaste) code to quickly clear these images.
+
+### Not Removing Non-wear Time
+
+Make sure that you remove any images that are not wear time by ticking the non-wear time button.
+These help keep total estimates of screen time accurate.
