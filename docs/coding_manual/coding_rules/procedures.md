@@ -48,6 +48,12 @@ Images should only be coded as uncodable if all aspects of the image or set of i
 
 Reasons for an image to be classified as uncodable are listed below.
 
+## Non-wear Time
+
+In some cases, a participant may remove the camera but forget to turn it off.
+This might be indicated by a series of images that are all the same, or images being captured from a position that would not be possible if the camera was being worn (e.g., the camera is sitting on a table).
+These images should be coded as *non-wear time*.
+
 ### Blurry
 
 Any image or set of images where the image quality is so poor due to being blurred the coder is unable to confidently determine what is occurring in all aspects of the image.
