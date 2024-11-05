@@ -118,7 +118,7 @@ def find_and_upload(root, redcap_key):
         )
 
         # Upload the data to REDCap
-        api_url = "https://rdcap.acu.edu.au/api/"
+        api_url = "https://redcap.acu.edu.au/api/"
         api_key = redcap_key
         project = Project(api_url, api_key)
 
