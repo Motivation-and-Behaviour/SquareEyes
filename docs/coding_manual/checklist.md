@@ -32,7 +32,7 @@ You can take advantage of that to clear the checklist by refreshing the page.
 - [ ] Open Timelapse (Labeled Timelapse2).
 - [ ] Select `File > Load Template, images and video files...`
 - [ ] Select SquareEyes Template (TBD file) and open.
-- [ ] Select `File > Import Data from a .csv file… > Image Data Import` and open.
+- [ ] Select `File > Export or import data to/from a csv file… > Import image/video data from a csv file… > Image data import` and open.
 - [ ] Select `Recognitions > Import image recognition data for this image set... > Square Eyes Detections.json` and open.
 - [ ] Select Recognitions > Set bounding box options… > Change the slider to 0.3 and press Okay.
 
@@ -41,6 +41,13 @@ You can take advantage of that to clear the checklist by refreshing the page.
 - [ ] Select `Edit > Show Quick Paste Window`.
 - [ ] Fill in the QuickPaste options.
       Repeat as needed
+
+## Final Data Check
+
+- [ ] Navigate the the 'Data table' (in menu directly above image preview).
+- [ ] Scroll through table to ensure all appropriate fields are populated, and incorrect automatic recognitions are cleared.
+      Each row on the data table represents a single image from the data set.
+      Select an individual row to edit coding for an image.
 
 ## Pasting Files Back Onto the Network Folder
 
