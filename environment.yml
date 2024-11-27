@@ -17,6 +17,7 @@ dependencies:
   - numpy=1.23.5
   - pip>=23.0.1
   - pytesseract
+  - python-dotenv
   - pytorch
   - pytorch-cuda=11.8
   - setuptools
@@ -38,3 +39,4 @@ dependencies:
       - mkdocs-git-authors-plugin
       - mkdocstrings
       - mkdocs-glightbox
+      - PyCap
