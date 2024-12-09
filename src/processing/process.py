@@ -11,10 +11,13 @@ from pathlib import Path
 import cv2
 import numpy as np
 import pytesseract
+from dotenv import load_dotenv
 from tqdm import tqdm
 
 from src.data.classes import load_main_classes, load_timelapse_mappings
 from src.models.predict import Predictor
+
+load_dotenv()
 
 
 def process_folders(folders, n_back=5, overwrite=False):
