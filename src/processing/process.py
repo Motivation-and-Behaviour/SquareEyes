@@ -115,7 +115,7 @@ def process_folders(folders, n_back=5, overwrite=False):
 def extract_timestamps(images):
     def process_image(image):
         x, y, w, h = 760, 1048, 1048, 32
-        im = cv2.imread(image)
+        im = cv2.imread(image, cv2.IMREAD_GRAYSCALE)
         # Just get the timestamp section of image
         roi = im[y : y + h, x : x + w]
         # Invert colours
@@ -143,7 +143,7 @@ def extract_timestamps(images):
     with ThreadPool(multiprocessing.cpu_count()) as p:
         data = list(
             tqdm(
-                p.imap(process_image, images),
+                p.imap(process_image, images, chunksize=40),
                 desc="Extracting timestamps",
                 position=1,
                 leave=False,
