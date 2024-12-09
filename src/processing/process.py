@@ -44,7 +44,10 @@ def process_folders(folders, n_back=5, overwrite=False):
 
         # TODO: Check that folder structure meets requirements
         # Copy the template file into the folder
-        shutil.copy("data/SquareEyes Template.tdb", folder)
+        shutil.copyfile(
+            "data/SquareEyes Template.tdb",
+            os.path.join(folder, "SquareEyes Template.tdb"),
+        )
 
         # Call the predictor on the whole folder to get generator of predictions
         images_folder = os.path.join(folder, "images")
