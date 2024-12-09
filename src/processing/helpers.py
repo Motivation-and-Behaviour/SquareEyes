@@ -94,8 +94,8 @@ def find_and_upload(root, redcap_key):
         participant_id = file.split("/")[7]
         timepoint_dict = {
             "Baseline": "baseline_visit_2_arm_1",
-            "12m_visit_2_arm_1": "Time_1",
-            "24m_visit_2_arm_1": "Time_2",
+            "Time_1": "12m_visit_2_arm_1",
+            "Time_2": "24m_visit_2_arm_1",
         }
         timepoint = timepoint_dict[file.split("/")[8]]
 
