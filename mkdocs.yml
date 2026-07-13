@@ -3,7 +3,9 @@ plugins:
   - git-committers:
       repository: Motivation-and-Behaviour/SquareEyes
       branch: master
-  - git-revision-date-localized
+      enabled: !ENV [CI, false]
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
   - glightbox:
       auto_caption: true
   - mkdocstrings
