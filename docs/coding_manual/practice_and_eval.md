@@ -3,7 +3,7 @@
 Once you feel you have a good handle on the coding process, you can try coding some practice data.
 This data has already been coded by the research team, so you can compare your results to theirs and discuss any points of difference.
 
-The practice data is available on the network drive at `.../Square_Eyes_DP20_Data/Coding Evaluation`.
+The practice data is available on the SharePoint Site at `.../Square_Eyes_DP20_Data/Coding Evaluation`.
 To complete the evaluation:
 
 1. Make a copy of the `9999` folder in the same location.

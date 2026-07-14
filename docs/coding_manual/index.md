@@ -1,7 +1,7 @@
 # Introduction
 
 Welcome to the coding manual for the Square Project (also known as [KidVision](https://www.kidvision.edu.au/) to participants).
-This projects seeks to better understand how children interact with the world around them.
+This project seeks to better understand how children interact with the world around them.
 We've used wearable cameras to record the world from the child's perspective, and these documents describe how we interpret the data that has been captured.
 
 It is important that we are consistent in how we code the wearable camera data.
@@ -24,7 +24,7 @@ Throughout the manual, we use the following terms:
 :   A technology platform with a screen that displays visual content for the purpose of education, entertainment, or communication (e.g., a television, smartphone or tablet).
 
 **Active screen-based media device**
-:   A screen-based media device that has the appearance of being turned ‘on’ (i.e., has an active screen).'
+:   A screen-based media device that has the appearance of being turned ‘on’ (i.e., has an active screen).
     Indicated by having a bright screen or visible content displayed on the screen of the device.
     Only active devices count as screen exposure.
 
@@ -41,7 +41,7 @@ Throughout the manual, we use the following terms:
 **Screen media**
 :   Content on any technology platform with a screen.
 
-If you come across another term you are unfamiliar with, check the [Codebook](coding_rules/codebook.md) to see if it is defined there.
+If you come across another term you are unfamiliar with, check the [Codebook](coding_protocols/codebook.md) to see if it is defined there.
 
 ## Key Contacts
 
@@ -69,5 +69,5 @@ If you come across another term you are unfamiliar with, check the [Codebook](co
 
 **Contact for:**
 
-* Network drive access
+* SharePoint access
 * Contract issues
