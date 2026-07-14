@@ -19,22 +19,22 @@ That is, you must complete this training and complete the declaration at the end
 
 ## Guideline 3: Storage
 
-**All collected images must be stored securely and password-protected on the ACU secure network drive.
-Coders must not share their access passwords with anyone or give access to the ACU network drive to anyone outside of the coding team.**
+**All collected images must be stored securely and password-protected on the ACU secure SharePoint site.
+Coders must not share their access passwords with anyone or give access to the ACU SharePoint site to anyone outside of the coding team.**
 
-We'll provide access to the network drive during your time as a coder.
-When you finish coding, we'll revoke your access to the network drive.
-Don't copy or move any of the files off the network drive.[^1]
+We'll provide access to SharePoint during your time as a coder.
+When you finish coding, we'll revoke your access to the SharePoint site.
+Don't copy or move any of the files off the SharePoint site.[^1]
 
 [^1]: We make a limited exception for creating local caches under certain circumstances.
-      See [Create a Local Cache](../../timelapse/setup/#create-a-local-cache) for more details.
+      See [Create a Local Cache](../timelapse/setup.md#create-a-local-cache) for more details.
 
 ## Guideline 4: Computer Security
 
 **Coders must not leave their computer containing unsecured data unattended.
 If coders leave their computer for any amount of time they must log out or lock their computer.**
 
-If you are signed into a computer which has access to the network drive, you must log out or lock the computer when you leave it for any period of time.
+You must log out or lock your computer when you leave it for any period of time.
 On Windows, you can lock the computer by pressing ++win+l++.
 
 Please do not lock the computer when you are finished for the day - make sure that you log out instead.
@@ -58,7 +58,7 @@ If that's the case, you should stop coding and let the [project lead](../index.m
 Under no circumstances should you make copies of any of the images.
 This includes sending an image via email (including to the research team), taking a photo of an image, or posting an image to the internet.
 
-If you do need to share an image with someone on the research team (e.g., to get a second opinion on a difficult to code image), you should just send them the file path to the image on the network drive.
+If you do need to share an image with someone on the research team (e.g., to get a second opinion on a difficult to code image), you should just send them the file path to the image on the SharePoint site.
 
 ## Guideline 7: Illegal Activities
 

@@ -1,82 +1,97 @@
 site_name: Square Eyes Documentation
 plugins:
-  - git-committers:
-      repository: Motivation-and-Behaviour/SquareEyes
-      branch: master
-      enabled: !ENV [CI, false]
-  - git-revision-date-localized:
-      enabled: !ENV [CI, false]
-  - glightbox:
-      auto_caption: true
-  - mkdocstrings
-  - search
+    - git-committers:
+          repository: Motivation-and-Behaviour/SquareEyes
+          branch: master
+          enabled: !ENV [CI, false]
+    - git-revision-date-localized:
+          enabled: !ENV [CI, false]
+    - glightbox:
+          auto_caption: true
+    - mkdocstrings
+    - search
+    - typeset
 markdown_extensions:
-  - abbr
-  - attr_list
-  - admonition
-  - def_list
-  - footnotes
-  - md_in_html
-  - pymdownx.caret
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.keys
-  - pymdownx.details
-  - pymdownx.inlinehilite
-  - pymdownx.snippets:
-      auto_append:
-        - assets/glossary.md
-  - pymdownx.tasklist:
-      custom_checkbox: true
-      clickable_checkbox: true
-  - toc:
-      permalink: true
+    - abbr
+    - attr_list
+    - admonition
+    - def_list
+    - footnotes
+    - md_in_html
+    - pymdownx.caret
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - pymdownx.keys
+    - pymdownx.details
+    - pymdownx.inlinehilite
+    - pymdownx.snippets:
+          auto_append:
+              - assets/glossary.md
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tasklist:
+          custom_checkbox: true
+          clickable_checkbox: true
+    - toc:
+          permalink: true
 theme:
-  name: material
-  features:
-    - content.code.copy
-    - content.tabs.link
-    - content.tooltips
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
-    - navigation.footer
-    # - navigation.indexes
-    - navigation.tracking
-    - search.suggest
-    - search.highlight
-    # - toc.integrate
-    - toc.follow
-  palette:
-    scheme: default
-    primary: custom
-    accent: custom
-  logo: imgs/SquareEyes.png
-  favicon: imgs/SquareEyes.png
+    name: material
+    custom_dir: overrides
+    features:
+        - announce.dismiss
+        - content.code.copy
+        - content.tabs.link
+        - content.tooltips
+        - navigation.tabs
+        - navigation.sections
+        - navigation.top
+        - navigation.footer
+        # - navigation.indexes
+        - navigation.tracking
+        - search.suggest
+        - search.highlight
+        # - toc.integrate
+        - toc.follow
+    palette:
+        scheme: default
+        primary: custom
+        accent: custom
+    logo: imgs/SquareEyes.png
+    favicon: imgs/SquareEyes.png
 extra_css:
-  - stylesheets/extra.css
+    - stylesheets/extra.css
 repo_url: https://github.com/Motivation-and-behaviour/squareeyes
 nav:
-  - Home: index.md
-  - Coding Manual:
-      - coding_manual/index.md
-      - Coder Training: coding_manual/coder_training.md
-      - Ethics:
-          - coding_manual/ethics/index.md
-          - coding_manual/ethics/guidelines.md
-          - coding_manual/ethics/declaration.md
-      - Coding Process:
-          - coding_manual/coding_rules/index.md
-          - coding_manual/coding_rules/rules.md
-          - coding_manual/coding_rules/procedures.md
-          - coding_manual/coding_rules/codebook.md
-      - Timelapse Software:
-          - coding_manual/timelapse/index.md
-          - coding_manual/timelapse/setup.md
-          - coding_manual/timelapse/coding.md
-      - Practice and Evaluation: coding_manual/practice_and_eval.md
-      - Summary and Checklist: coding_manual/checklist.md
-  - Model Docs:
-      - model_docs/index.md
-      - model_docs/install.md
+    - Home: index.md
+    - Coding Manual:
+          - coding_manual/index.md
+          - Coder Training: coding_manual/coder_training.md
+          - Ethics:
+                - coding_manual/ethics/index.md
+                - coding_manual/ethics/guidelines.md
+                - coding_manual/ethics/declaration.md
+          - Coding Protocols:
+                - coding_manual/coding_protocols/index.md
+                - coding_manual/coding_protocols/rules.md
+                - coding_manual/coding_protocols/procedures.md
+                - coding_manual/coding_protocols/codebook.md
+          - Software & Accounts:
+                - coding_manual/software/index.md
+                - coding_manual/software/accounts.md
+                - coding_manual/software/timelapse.md
+                - coding_manual/software/other_software.md
+          - Coding Workflow:
+                - coding_manual/coding_workflow/index.md
+                - coding_manual/coding_workflow/setup.md
+                - coding_manual/coding_workflow/coding.md
+                - coding_manual/coding_workflow/finish.md
+          - Practice and Evaluation: coding_manual/practice_and_eval.md
+          - Summary and Checklist: coding_manual/checklist.md
+          - Changelog: coding_manual/changelog.md
+    - Model Docs:
+          - model_docs/index.md
+          - model_docs/install.md

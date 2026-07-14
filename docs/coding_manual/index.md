@@ -41,7 +41,7 @@ Throughout the manual, we use the following terms:
 **Screen media**
 :   Content on any technology platform with a screen.
 
-If you come across another term you are unfamiliar with, check the [Codebook](coding_rules/codebook.md) to see if it is defined there.
+If you come across another term you are unfamiliar with, check the [Codebook](coding_protocols/codebook.md) to see if it is defined there.
 
 ## Key Contacts
 
@@ -69,5 +69,5 @@ If you come across another term you are unfamiliar with, check the [Codebook](co
 
 **Contact for:**
 
-* Network drive access
+* SharePoint access
 * Contract issues
