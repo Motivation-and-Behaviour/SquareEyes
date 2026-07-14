@@ -8,7 +8,7 @@
    If the image is uncodable or does not include a screen exposure, then code the image as uncodable or No screen exposure and move on to the next image.
 3. Code the image for location
 4. Code the image for number of devices
-5. Code the image for devices1 and device 2
+5. Code the image for device1 and device2
 6. Code the image for content1 and content2
 7. Code the image for the social setting
 8. Code the image for associated behaviours
@@ -26,7 +26,7 @@
 * Cues for screen exposure when a screen device is not present in the image include seeing other people in the room looking in the direction of the screen-based media device or the participant sitting in the same position for a long period of time.
 * Cues for screen exposure during ceiling images include light on ceiling changing in each image or arms positions in a way that they are most likely holding a device.
 * If someone in the background is using a screen-based media device do not code this as screen exposure if the participant cannot see the screen of the device.
-  Only code a device as a screen exposure of the participant can see the screen of the device.
+  Only code a device as a screen exposure if the participant can see the screen of the device.
 
 ## No Screen Exposure
 
@@ -48,7 +48,7 @@ Images should only be coded as uncodable if all aspects of the image or set of i
 
 Reasons for an image to be classified as uncodable are listed below.
 
-## Non-wear Time
+### Non-wear Time
 
 In some cases, a participant may remove the camera but forget to turn it off.
 This might be indicated by a series of images that are all the same, or images being captured from a position that would not be possible if the camera was being worn (e.g., the camera is sitting on a table).

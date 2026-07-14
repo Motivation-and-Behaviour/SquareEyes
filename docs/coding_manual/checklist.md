@@ -15,7 +15,7 @@ You can take advantage of that to clear the checklist by refreshing the page.
 
 - [ ] Open Timelapse
 - [ ] Select `File > Load Template, images and video files...`
-- [ ] Select SquareEyes Template (TBD file) and open.
+- [ ] Select SquareEyes Template (.tbd file) and open.
 - [ ] Select `File > Export or import data to/from a csv file… > Import image/video data from a csv file… > Image data import` and open.
 - [ ] Select `Recognitions > Import image recognition data for this image set... > Square Eyes Detections.json` and open.
 - [ ] Select `Sort > By File Path only`.
@@ -29,7 +29,7 @@ You can take advantage of that to clear the checklist by refreshing the page.
 
 ## Final Data Check
 
-- [ ] Navigate the the 'Data table' (in menu directly above image preview).
+- [ ] Navigate to the 'Data table' (in menu directly above image preview).
 - [ ] Scroll through table to ensure all appropriate fields are populated, and incorrect automatic recognitions are cleared.
       Each row on the data table represents a single image from the data set.
       Select an individual row to edit coding for an image.
@@ -38,9 +38,11 @@ You can take advantage of that to clear the checklist by refreshing the page.
 
 This must be done after you complete coding for each participant.
 
-- [ ] Only paste the “SquareEyes Detections.ddb” and “Backups” folder back into the corresponding participant folder on the SharePoint site.
+- [ ] Only paste the “Square Eyes Template.ddb” and “Backups” folder back into the corresponding participant folder on the SharePoint site.
       It should replace the existing files if they exist for this participant.
       Make sure that it is the correct participant and timepoint.
+- [ ] Delete both the downloaded zip file, and the extracted folder.
+      Do not leave these on your local machine.
 - [ ] Mark the participant's timepoint complete on Asana.
 
 ## Video Demo

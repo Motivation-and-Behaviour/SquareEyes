@@ -151,7 +151,7 @@ Inside are four important files and a folder.
 
     ---
 
-    Start by opening Timelapse, the click on `File > Load template, images, and video files...`.
+    Start by opening Timelapse, then click on `File > Load template, images, and video files...`.
     Navigate to the folder of the participant you're coding, and select the `SquareEyes Template.tdb` file.[^1]
 
     When you do this, Timelapse has to generate a database for the images.
@@ -168,7 +168,7 @@ Inside are four important files and a folder.
     ---
 
     Next, we need to import the pre-coded data.
-    Click on `File > Import data from a .csv file...`.
+    Click on `File > Export or import data to/from a csv file… > Import image/video data from a csv file… > Image data import`.
     Navigate to the folder of the participant you're coding, and select the `Image Data Import.csv` file.
 
     <iframe src="https://www.loom.com/embed/c19b9eb871554d93be21a2912ae4760c?sid=2b14068a-63a4-41db-a779-a8c736205ecd" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width: 100%; aspect-ratio: 100 / 67.67; border: 0;"></iframe>
@@ -178,7 +178,7 @@ Inside are four important files and a folder.
     ---
 
     Now we can load the annotations.
-    This is not strictly nessassary, but it's very helpful in determining why something was precoded.
+    This is not strictly necessary, but it's very helpful in determining why something was precoded.
 
     Click on `Recognitions > Import image recognition data for this image set...`.
     Navigate to the folder of the participant you're coding, and select the `Square Eyes Detections.json` file.

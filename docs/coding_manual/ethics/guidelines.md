@@ -26,8 +26,9 @@ We'll provide access to SharePoint during your time as a coder.
 When you finish coding, we'll revoke your access to the SharePoint site.
 Don't copy or move any of the files off the SharePoint site.[^1]
 
-[^1]: We make a limited exception for creating local caches under certain circumstances.
-      See [Create a Local Cache](../timelapse/setup.md#create-a-local-cache) for more details.
+[^1]: We make a limited exception for downloading local versions only for coding purposes.
+      See [Download the Participant Data](../coding_workflow/setup.md#44-set-the-image-order) for more details.
+      These files **MUST** be deleted once coding is complete.
 
 ## Guideline 4: Computer Security
 
@@ -85,5 +86,5 @@ There are other cases where you will need to let the project team know about an 
 
 **All images used in disseminated material must have any identifying features (e.g., faces, usernames, street names, business and school names) blurred or blocked out of the image.**
 
-This guidelines is not relevant to coders.
+This guideline is not relevant to coders.
 It specifies the circumstances under which an image could be disseminated.
