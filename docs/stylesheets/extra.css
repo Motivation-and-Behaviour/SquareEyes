@@ -2,3 +2,24 @@
   --md-primary-fg-color: #3C1053;
   --md-accent-fg-color: #F2120C;
 }
+
+/* Centre the announcement banner text */
+.md-banner__inner {
+  text-align: center;
+}
+
+/* Links in the announcement banner: the theme colours links with our (dark)
+   primary purple, which is unreadable on the banner's dark background. */
+.md-banner a,
+.md-banner a:focus,
+.md-banner a:hover {
+  color: currentcolor;
+  text-decoration: underline;
+}
+
+/* Wider grid cards: add `wide` to the div, e.g. <div class="grid cards wide" markdown>.
+   Overrides the theme's 16rem minimum card width, so fewer columns fit and each
+   card (and any embedded video) renders larger. */
+.md-typeset .grid.wide {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+}

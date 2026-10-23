@@ -8,7 +8,7 @@ In most cases, the terms will be familiar to you, but it's important that we all
 `Unclassifiable` <a name="unclassifiable"></a>
 :   An image is to be coded as `Unclassifiable` if the coder cannot identify some aspect of the code.
     Images should be coded to the lowest level possible.
-    For example, if a coder is confident that the content is interactive, but they cannot tell what category of interactive media it is, they should code the content as as `Unclassifiable - Interactive`.
+    For example, if a coder is confident that the content is interactive, but they cannot tell what category of interactive media it is, they should code the content as `Unclassifiable - Interactive`.
     However, if the coder can not tell if the content is interactive or passive, it should just be coded as `Unclassifiable`.
 
 ## Device
@@ -137,7 +137,7 @@ That is, is the content intended to entertain or educate?
     Includes creation applications, educational video games, programmes and internet based activities where it appears that the screen media is educational (e.g., watching an educational TV show or completing homework online).
 
 `Recreational`
-:   Screen media created with the purpose to entertain the viewer, with no intentional purpose to education, inform or enlighten.
+:   Screen media created with the purpose to entertain the viewer, with no intentional purpose to educate, inform or enlighten.
     Includes programmes, video games and internet based activities where it appears that the screen media is recreational (e.g., most TV shows, most video games or online shopping).
 
 `Social`
@@ -157,11 +157,9 @@ That is, is the content intended to entertain or educate?
     That is, if a game has a violent component, the content should be coded as violent regardless of if the image displays the violence.
     A significant component of the content should be violent for it to be coded as violent content.
 
-    <!-- TODO: Is this definition clear enough?? -->
-
 ## Context
 
-The context dimension of the framework has been included to code the environment that the participant is when screen exposure occurs.
+The context dimension of the framework has been included to code the environment that the participant is in when screen exposure occurs.
 The content dimension is made up of four facets: location, social setting, social interactions and associated behaviours.
 
 ### Location
@@ -226,7 +224,7 @@ This section is made up of three categories: home, public, and transport.
 ### Social Setting
 
 Social setting refers to who the participant is with during screen exposure.
-This section is made up of five categories (alone, single adult, adults only, children only and mixed ages).
+This section is made up of five categories (alone, single adult, single child, adults only, children only and mixed ages).
 Indicators include another person being visible in the image.
 
 `Unclassifiable`
@@ -239,13 +237,13 @@ Indicators include another person being visible in the image.
 :   One person who appears to be over 18 years of age is visible in the image.
 
 `Single Child Only`
-:   ne person who appears to be under 18 years of age.
+:   One person who appears to be under 18 years of age.
 
 `Adults Only`
 :   People who appear to be over 18 years of age are visible in the image only (must be multiple people)
 
 `Children Only`
-:   One or more people who appear to be under 18 years of age.
+:   People who appear to be under 18 years of age (must be multiple children).
 
 `Mixed Ages`
 :   Multiple people in the image who are children and adults.
@@ -275,7 +273,6 @@ That is, if there is no screen exposure you do not need to code these behaviours
 
 `No behaviour`
 :   Used when there is no co-occuring behaviour of interest.
-
 
 `Unclassifiable`
 :   See [Unclassifiable](#unclassifiable) in [General Terms](#general-terms).

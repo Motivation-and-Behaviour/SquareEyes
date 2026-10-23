@@ -105,7 +105,7 @@ If the device, content or context is not visible in the image, it should be code
   ![Image One](../../imgs/examples/pre-ceiling.jpg){ width="500" data-description=".ceiling-desc1" }
   ![Image Two](../../imgs/examples/ceiling.jpg){ width="500" data-description=".ceiling-desc2" }
   ![Image Three](../../imgs/examples/post-ceiling.jpg){ width="500" data-description=".ceiling-desc3" }
-  <figcaption markdown>**Example:** Fully blocked sequence</figcaption>
+  <figcaption markdown>**Example:** Ceiling image sequence</figcaption>
 </figure>
 
 <div class="glightbox-desc ceiling-desc1">

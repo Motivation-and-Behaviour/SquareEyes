@@ -23,14 +23,14 @@ Before you begin coding, you should be able to check off all of the following it
 - [ ] Read Ethics training section of this manual.
 - [ ] Complete and sign the ethics declaration form.
 
-### Coding Process Familiarisation
+### Coding Protocols Familiarisation
 
-- [ ] Read the coding process section of this manual.
+- [ ] Read the coding protocols section of this manual.
 - [ ] Complete the examples.
 
-### Timelapse Software Familiarisation
+### Coding Workflows Familiarisation
 
-- [ ] Read the timelapse software section of this manual.
+- [ ] Read the coding workflow section of this manual
 - [ ] Practice loading and annotating images using the example files provided.
 
 ### Image Coding Practice and Evaluation
