@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import configparser
 import csv
 import logging
@@ -102,9 +103,7 @@ def retry_failed(failed):
             ]
         pbar.close()
 
-        still_failed = [
-            (src, dst, f.result()) for src, dst, f in futures if f.result()
-        ]
+        still_failed = [(src, dst, f.result()) for src, dst, f in futures if f.result()]
         if len(still_failed) == len(failed):
             print("No progress on this pass, giving up on retries.")
             failed = still_failed
@@ -172,12 +171,63 @@ def save_folders_to_csv(folders):
         print(f"Warning: Could not save CSV: {e}")
 
 
+def sync_results(local_paths, src_base, dst_dir):
+    """Copies the processing results from the local folders back to OneDrive."""
+    print("\nSyncing Results to Network...")
+
+    files_to_sync = [
+        ".converted",
+        "Image Data Import.csv",
+        "Square Eyes Detections.json",
+        "SquareEyes Template.tdb",
+    ]
+
+    sync_count = 0
+    # Simple sync pass
+    for local_dir in tqdm(local_paths, desc="Syncing Folders"):
+        if not local_dir.exists():
+            continue
+
+        rel_dir = local_dir.relative_to(dst_dir)
+        network_dir = src_base / rel_dir
+
+        for fname in files_to_sync:
+            src = local_dir / fname
+            dst = network_dir / fname
+
+            if src.exists():
+                try:
+                    shutil.copy2(src, dst)
+                    sync_count += 1
+                except Exception as e:
+                    logging.error(f"Sync failed {src}: {e}")
+
+    print(f"\nWorkflow Complete. Synced {sync_count} result files.")
+
+
 def main():
+    parser = argparse.ArgumentParser(
+        description="Copy unprocessed folders locally, then sync results back"
+    )
+    parser.add_argument(
+        "--sync-only",
+        action="store_true",
+        help="Skip copying and just sync back results for all processed local folders",
+    )
+    args = parser.parse_args()
+
     SRC_BASE, DST_DIR = get_config()
 
     print(f"--- Square Eyes Streaming Workflow ---")
     print(f"Source: {SRC_BASE}")
     print(f"Dest:   {DST_DIR}\n")
+
+    if args.sync_only:
+        # Processed local folders are marked with a .converted file
+        processed = sorted(p.parent for p in DST_DIR.glob("*/*/Images/.converted"))
+        print(f"Found {len(processed)} processed folders in {DST_DIR}")
+        sync_results(processed, SRC_BASE, DST_DIR)
+        return
 
     # --- PHASE 1: IDENTIFY PARTICIPANTS (RESUME LOGIC) ---
     folders_to_process = load_folders_from_csv()
@@ -281,36 +331,7 @@ def main():
         sys.exit(0)
 
     # --- PHASE 4: SYNC BACK ---
-    print("\nSyncing Results to Network...")
-
-    files_to_sync = [
-        ".converted",
-        "Image Data Import.csv",
-        "Square Eyes Detections.json",
-        "SquareEyes Template.tdb",
-    ]
-
-    sync_count = 0
-    # Simple sync pass
-    for local_dir in tqdm(local_processed_paths, desc="Syncing Folders"):
-        if not local_dir.exists():
-            continue
-
-        rel_dir = local_dir.relative_to(DST_DIR)
-        network_dir = SRC_BASE / rel_dir
-
-        for fname in files_to_sync:
-            src = local_dir / fname
-            dst = network_dir / fname
-
-            if src.exists():
-                try:
-                    shutil.copy2(src, dst)
-                    sync_count += 1
-                except Exception as e:
-                    logging.error(f"Sync failed {src}: {e}")
-
-    print(f"\nWorkflow Complete. Synced {sync_count} result files.")
+    sync_results(local_processed_paths, SRC_BASE, DST_DIR)
 
     # --- PHASE 5: CLEANUP ---
     if os.path.exists(CSV_FILE):
