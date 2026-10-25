@@ -19,6 +19,8 @@ from src.models.predict import Predictor
 
 load_dotenv()
 
+MISSING_DATETIME = "9999-12-31 23:59:59"  # Timelapse rejects blank DateTime
+
 
 def process_folders(folders, n_back=5, overwrite=False):
     # The folder path should be e.g., ...\1173\Baseline\Images where there is
@@ -79,7 +81,7 @@ def process_folders(folders, n_back=5, overwrite=False):
         # Add the timestamps to the csv rows
         for row in csv_rows:
             row_filename = row["File"]
-            row["DateTime"] = timestamps.get(row_filename, "")
+            row["DateTime"] = timestamps.get(row_filename) or MISSING_DATETIME
 
         csv_rows = calculate_n_back(csv_rows, n=n_back)
 
